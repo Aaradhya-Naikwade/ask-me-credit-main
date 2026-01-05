@@ -9,10 +9,13 @@ import Testimonials from "../components/Testimonials";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 
 import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const words = ["Simple Decisions", "Fast Approvals", "Better Rates", "Secure Future"];
 
@@ -65,11 +68,17 @@ const Home = () => {
               all in one place.
             </p>
 
-
             <div className="home-actions">
               <button className="primary-btn">Apply for Loan</button>
-              <button className="secondary-btn">Calculate EMI</button>
+              {/* <button className="secondary-btn">Calculate EMI</button> */}
+              <button
+                className="secondary-btn"
+                onClick={() => navigate("/emi-calculator")}
+              >
+                Calculate EMI
+              </button>
             </div>
+
           </motion.div>
 
           {/* Right Side Image */}

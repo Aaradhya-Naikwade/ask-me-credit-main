@@ -1,29 +1,35 @@
+/* ===== SECTION ===== */
 .loan-section {
   padding: 100px 0;
-  background-color: #ffffff;
-  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    180deg,
+    #f8fbff 0%,
+    #ffffff 60%
+  );
+  font-family: "Poppins", sans-serif;
 }
 
+/* ===== HEADER ===== */
 .loan-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .section-pill {
-  background: #eff6ff;
+  background: #e0ecff;
   color: #2563eb;
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 0.85rem;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .loan-header h2 {
-  font-size: 2.8rem;
+  font-size: 2.7rem;
   color: #0f172a;
-  margin: 15px 0;
+  margin: 18px 0 10px;
   font-weight: 800;
   letter-spacing: -1px;
 }
@@ -34,56 +40,76 @@
 
 .loan-header p {
   color: #64748b;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: auto;
 }
 
-/* Grid Layout */
+/* ===== GRID ===== */
 .loan-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 32px;
 }
 
+/* ===== CARD ===== */
 .loan-card {
   background: #ffffff;
-  border: 1px solid #f1f5f9;
   border-radius: 28px;
-  padding: 35px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 36px;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+
+  /* 🔥 IMPORTANT VISIBILITY FIX */
+  border: 1px solid #e5edff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+  transition: all 0.35s ease;
 }
 
 .loan-card:hover {
-  transform: translateY(-12px);
-  border-color: #dbeafe;
-  box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.18);
+  border-color: #c7dbff;
+}
+
+/* ===== TAG + TITLE ===== */
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .loan-tag {
-  font-size: 0.75rem;
+  width: fit-content;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #2563eb;
-  background: #f0f7ff;
-  padding: 4px 12px;
-  border-radius: 8px;
+  color: #1d4ed8;
+  background: #eaf1ff;
+  padding: 5px 14px;
+  border-radius: 999px;
 }
 
 .loan-title {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  color: #1e293b;
-  margin-top: 15px;
+  color: #0f172a;
 }
 
+/* ===== ICON SPACE ===== */
 .loan-icon-space {
-  width: 100%;
-  height: 60px; /* Blank space as requested */
-  margin: 25px 0;
+  height: 60px;
+  margin: 28px 0;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    #eff6ff,
+    #ffffff
+  );
 }
 
+/* ===== FEATURES ===== */
 .loan-features {
   list-style: none;
   padding: 0;
@@ -91,62 +117,65 @@
 }
 
 .loan-features li {
-  color: #64748b;
   font-size: 0.95rem;
-  margin-bottom: 10px;
+  color: #475569;
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 .loan-features li::before {
-  content: "•";
+  content: "✔";
   color: #2563eb;
-  font-weight: bold;
+  font-size: 0.85rem;
 }
 
+/* ===== BUTTON ===== */
 .loan-btn {
-  /* Smaller, more refined size */
-  width: fit-content; 
-  padding: 10px 24px;
-  background: transparent;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 100px; /* Pill shape */
-  color: #64748b;
+  width: fit-content;
+  padding: 11px 26px;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1.5px solid #dbeafe;
+  color: #2563eb;
   font-size: 0.9rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   cursor: pointer;
+  margin-top: auto;
   transition: all 0.3s ease;
-  margin-top: auto; /* Pushes button to bottom of card */
 }
 
-/* Hover effect now triggers on the whole card */
-.loan-card:hover .loan-btn {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff;
-  padding-right: 30px; /* Slight expansion effect */
-}
-
-/* Make the arrow move slightly on hover */
 .loan-btn svg {
   transition: transform 0.3s ease;
+}
+
+.loan-card:hover .loan-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
 }
 
 .loan-card:hover .loan-btn svg {
   transform: translateX(4px);
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .loan-grid { grid-template-columns: repeat(2, 1fr); }
+  .loan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 650px) {
-  .loan-grid { grid-template-columns: 1fr; }
-  .loan-header h2 { font-size: 2.2rem; }
+  .loan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-header h2 {
+    font-size: 2.2rem;
+  }
 }

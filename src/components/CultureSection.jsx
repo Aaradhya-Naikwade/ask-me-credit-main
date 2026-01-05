@@ -6,25 +6,25 @@ const values = [
     id: 1,
     title: "Synergy First",
     desc: "Great ideas don’t have a hierarchy. We believe in the power of teamwork and win as one united team.",
-    icon: "🤝"
+    icon: ""
   },
   {
     id: 2,
     title: "Fearless Innovation",
     desc: "We don’t just follow trends; we set them through constant experimentation.",
-    icon: "🚀"
+    icon: ""
   },
   {
     id: 3,
     title: "Empathy Driven",
     desc: "We build for people, not just for users. Our customers are at the heart of everything.",
-    icon: "❤️"
+    icon: ""
   },
   {
     id: 4,
     title: "Agile Mindset",
     desc: "We move fast, learn faster, and evolve with the dynamic fintech landscape.",
-    icon: "🌀"
+    icon: ""
   },
 ];
 

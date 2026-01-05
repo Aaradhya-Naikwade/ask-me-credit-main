@@ -126,7 +126,7 @@
   background: #f8fafc;
   border-color: var(--primary-blue);
   color: var(--primary-blue);
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 
 }
 
@@ -183,5 +183,12 @@
 
   .home-image img {
     max-width: 400px;
+  }
+}
+
+@media (max-width: 375px) {
+  .home-actions {
+    flex-direction: column;
+    justify-content: center;
   }
 }

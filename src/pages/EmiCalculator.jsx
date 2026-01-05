@@ -36,7 +36,7 @@ const EmiCalculator = () => {
                         <p>
                             Use our smart EMI calculator to plan your loan better. Choose your amount, interest, and tenure — get your EMI instantly.
                         </p>
-
+        
                         <div className="value-props">
                             <div className="prop">
                                 <div className="prop-dot"></div>

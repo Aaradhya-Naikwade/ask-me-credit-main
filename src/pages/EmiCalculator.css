@@ -78,7 +78,9 @@
 .modern-calc {
     background: #ffffff;
     border-radius: 32px;
-    border: 1px solid #9ba0a7;
+    /* border: 1px solid #9ba0a7; */
+      border: 1px solid #e5edff;
+
     box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
