@@ -26,7 +26,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Loans", dropdown: true },
-    { name: "EMI Calculator", path: "/emi-calculator" },
+    { name: "Calculators", path: "/calculators" },
     { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -68,9 +68,8 @@ const Navbar = () => {
                 <span className="nav-dropdown-trigger">
                   Loans
                   <FiChevronDown
-                    className={`chevron ${
-                      loanOpenDesktop ? "rotate" : ""
-                    }`}
+                    className={`chevron ${loanOpenDesktop ? "rotate" : ""
+                      }`}
                   />
                 </span>
 
@@ -98,9 +97,8 @@ const Navbar = () => {
             ) : (
               <li
                 key={link.name}
-                className={`nav-item ${
-                  location.pathname === link.path ? "active" : ""
-                }`}
+                className={`nav-item ${location.pathname === link.path ? "active" : ""
+                  }`}
               >
                 <Link to={link.path}>{link.name}</Link>
               </li>
@@ -144,9 +142,8 @@ const Navbar = () => {
                   >
                     Loans
                     <FiChevronDown
-                      className={`chevron ${
-                        loanOpenMobile ? "rotate" : ""
-                      }`}
+                      className={`chevron ${loanOpenMobile ? "rotate" : ""
+                        }`}
                     />
                   </div>
 
@@ -178,6 +175,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
     </nav>
   );
 };

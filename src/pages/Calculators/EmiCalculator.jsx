@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import StatsSection from "../components/StatsSection";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import StatsSection from "../../components/StatsSection";
 import "./EmiCalculator.css";
 
 const EmiCalculator = () => {
@@ -23,8 +23,8 @@ const EmiCalculator = () => {
             <Navbar />
             <section className="emi-container">
                 <div className="emi-content-grid container">
-
-                    {/* Left: Strategic Content */}
+          
+                    {/* Left Content */}
                     <motion.div
                         className="emi-info-side"
                         initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const EmiCalculator = () => {
                         <p>
                             Use our smart EMI calculator to plan your loan better. Choose your amount, interest, and tenure — get your EMI instantly.
                         </p>
-        
+
                         <div className="value-props">
                             <div className="prop">
                                 <div className="prop-dot"></div>
@@ -45,6 +45,7 @@ const EmiCalculator = () => {
                                     <p>Real-time calculation based on market-standard APR models.</p>
                                 </div>
                             </div>
+
                             <div className="prop">
                                 <div className="prop-dot"></div>
                                 <div>
@@ -62,7 +63,7 @@ const EmiCalculator = () => {
                         </div>
                     </motion.div>
 
-                    {/* Right: Premium Calculator Card */}
+                    {/* Right - Calculator  */}
                     <motion.div
                         className="emi-card-side"
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -70,7 +71,6 @@ const EmiCalculator = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <div className="modern-calc">
-
 
                             <div className="calc-body">
                                 <div className="slider-box">

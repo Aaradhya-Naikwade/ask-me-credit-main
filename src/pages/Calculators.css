@@ -1,0 +1,126 @@
+/* ===== SECTION ===== */
+.loan-section {
+  padding: 140px 0 100px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 60%);
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== HEADER ===== */
+.loan-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-pill {
+  background: #e0ecff;
+  color: #2563eb;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.loan-header h2 {
+  font-size: 2.7rem;
+  color: #0f172a;
+  margin: 18px 0 10px;
+  font-weight: 800;
+}
+
+.loan-header h2 span {
+  color: #2563eb;
+}
+
+.loan-header p {
+  color: #64748b;
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: auto;
+}
+
+/* ===== GRID ===== */
+.loan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ===== CARD ===== */
+.loan-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 36px;
+  position: relative;
+  border: 1px solid #e5edff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+
+.loan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.18);
+  border-color: #c7dbff;
+}
+
+/* ===== CONTENT ===== */
+.card-content {
+  padding-right: 20px;
+}
+
+.loan-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.loan-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ===== ICON ===== */
+.card-icon {
+  position: absolute;
+  bottom: 26px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  transition: all 0.3s ease;
+}
+
+.loan-card:hover .card-icon {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .loan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .loan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-header h2 {
+    font-size: 2.2rem;
+  }
+}

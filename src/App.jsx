@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import EmiCalculator from "./pages/EmiCalculator";
+import EmiCalculator from "./pages/Calculators/EmiCalculator";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
+import Calculators from "./pages/Calculators"
 
 const Placeholder = ({ title }) => (
   <div className="container" style={{ paddingTop: "140px" }}>
@@ -17,9 +18,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/emi-calculator" element={<EmiCalculator/>} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/emi-calculator" element={<EmiCalculator />} />
+        <Route path="/calculators" element={<Calculators />} />
         <Route path="/apply" element={<Placeholder title="Apply for Loan" />} />
 
         {/* Loan pages */}
