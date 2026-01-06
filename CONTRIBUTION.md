@@ -1,1 +1,2 @@
 "// contribution check" 
+"// verified contribution" 
