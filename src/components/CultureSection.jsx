@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./CultureSection.css";
+import "../components/styles/CultureSection.css";
 
 const values = [
   {

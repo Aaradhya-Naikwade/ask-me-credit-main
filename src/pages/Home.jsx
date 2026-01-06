@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 
-import "./Home.css";
+import "./styles/Home.css";
 
 const Home = () => {
   const navigate = useNavigate();

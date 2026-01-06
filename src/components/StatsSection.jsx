@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./StatsSection.css";
+import "../components/styles/StatsSection.css";
 
 const stats = [
   { id: 1, label: "Active Users", value: "50K+" },

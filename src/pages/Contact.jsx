@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Contact.css";
+import "./styles/Contact.css";
 
 const Contact = () => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./AboutUs.css";
+import "./styles/AboutUs.css";
 
 const AboutUs = () => {
   return (

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./CreditFeatures.css";
+import "../components/styles/CreditFeatures.css";
 
 const CreditFeatures = () => {
   return (

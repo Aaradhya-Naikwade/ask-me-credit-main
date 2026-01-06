@@ -8,7 +8,7 @@ import {
 
 import { FaRupeeSign } from "react-icons/fa";
 
-import "./WhySection.css";
+import "../components/styles/WhySection.css";
 
 const reasons = [
   {

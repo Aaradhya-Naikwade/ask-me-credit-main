@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import "./Calculators.css";
+import "./styles/Calculators.css";
+
 
 const calculators = [
   {

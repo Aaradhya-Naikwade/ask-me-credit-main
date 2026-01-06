@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./LoanTypes.css";
+import "../components/styles/LoanTypes.css";
 
 const loanData = [
   {
