@@ -1,23 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import "../components/styles/Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [loanOpenDesktop, setLoanOpenDesktop] = useState(false);
-  const [loanOpenMobile, setLoanOpenMobile] = useState(false);
   const location = useLocation();
 
-  // Close menus on route change
+  // Close mobile menu on route change
   useEffect(() => {
     setMenuOpen(false);
-    setLoanOpenDesktop(false);
-    setLoanOpenMobile(false);
   }, [location]);
 
-  // Lock body scroll when mobile menu open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
@@ -25,17 +21,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Loans", dropdown: true },
+    { name: "Loans", path: "/loans" },          // 👈 NORMAL LINK
     { name: "Calculators", path: "/calculators" },
     { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
-  ];
-
-  const loanLinks = [
-    { name: "Personal Loan", path: "/loans/personal" },
-    { name: "Home Loan", path: "/loans/home" },
-    { name: "Business Loan", path: "/loans/business" },
-    { name: "Vehicle Loan", path: "/loans/vehicle" },
   ];
 
   return (
@@ -57,53 +46,16 @@ const Navbar = () => {
 
         {/* DESKTOP NAV */}
         <ul className="navbar-center desktop-only">
-          {navLinks.map((link) =>
-            link.dropdown ? (
-              <li
-                key={link.name}
-                className="nav-item dropdown"
-                onMouseEnter={() => setLoanOpenDesktop(true)}
-                onMouseLeave={() => setLoanOpenDesktop(false)}
-              >
-                <span className="nav-dropdown-trigger">
-                  Loans
-                  <FiChevronDown
-                    className={`chevron ${loanOpenDesktop ? "rotate" : ""
-                      }`}
-                  />
-                </span>
-
-                <AnimatePresence>
-                  {loanOpenDesktop && (
-                    <motion.div
-                      className="dropdown-mega"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                    >
-                      {loanLinks.map((loan) => (
-                        <Link
-                          key={loan.name}
-                          to={loan.path}
-                          className="mega-link"
-                        >
-                          {loan.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            ) : (
-              <li
-                key={link.name}
-                className={`nav-item ${location.pathname === link.path ? "active" : ""
-                  }`}
-              >
-                <Link to={link.path}>{link.name}</Link>
-              </li>
-            )
-          )}
+          {navLinks.map((link) => (
+            <li
+              key={link.name}
+              className={`nav-item ${
+                location.pathname === link.path ? "active" : ""
+              }`}
+            >
+              <Link to={link.path}>{link.name}</Link>
+            </li>
+          ))}
         </ul>
 
         {/* DESKTOP CTA */}
@@ -112,7 +64,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* MOBILE TOGGLE — ALWAYS VISIBLE */}
+      {/* MOBILE TOGGLE */}
       <button
         className="menu-toggle mobile-only"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -131,43 +83,15 @@ const Navbar = () => {
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
           >
-            {navLinks.map((link) =>
-              link.dropdown ? (
-                <div key={link.name}>
-                  <div
-                    className="mobile-link"
-                    onClick={() =>
-                      setLoanOpenMobile(!loanOpenMobile)
-                    }
-                  >
-                    Loans
-                    <FiChevronDown
-                      className={`chevron ${loanOpenMobile ? "rotate" : ""
-                        }`}
-                    />
-                  </div>
-
-                  {loanOpenMobile &&
-                    loanLinks.map((loan) => (
-                      <Link
-                        key={loan.name}
-                        to={loan.path}
-                        className="mobile-sublink"
-                      >
-                        {loan.name}
-                      </Link>
-                    ))}
-                </div>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="mobile-link"
-                >
-                  {link.name}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="mobile-link"
+              >
+                {link.name}
+              </Link>
+            ))}
 
             <Link to="/apply" className="cta-premium full-width">
               Start Application
@@ -175,7 +99,6 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
     </nav>
   );
 };

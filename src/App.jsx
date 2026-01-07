@@ -2,6 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Loans from "./pages/Loans"
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import Calculators from "./pages/Calculators"
+
+
 import EmiCalculator from "./pages/Calculators/EmiCalculator";
 import PersonalCalculator from "./pages/Calculators/PersonalCalculator"
 import HomeLoanCalculator from "./pages/Calculators/HomeLoanCalculator"
@@ -12,9 +18,11 @@ import CommercialVehicleLoanCalculator from "./pages/Calculators/CommercialVehic
 import GSTCalculator from "./pages/Calculators/GSTCalculator"
 
 
-import AboutUs from "./pages/AboutUs";
-import Contact from "./pages/Contact";
-import Calculators from "./pages/Calculators"
+import PersonalLoan from "./pages/Loans/PersonalLoan";
+import HomeLoan from "./pages/Loans/HomeLoan"
+import GoldLoan from "./pages/Loans/GoldLoan";
+import EducationLoan from "./pages/Loans/EducationLoan";
+import BusinessLoan from "./pages/Loans/BusinessLoan";
 
 const Placeholder = ({ title }) => (
   <div className="container" style={{ paddingTop: "140px" }}>
@@ -28,9 +36,16 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
+        {/* NAVBAR NAV-LINKS */}
         <Route path="/" element={<Home />} />
+        <Route path="/loans" element={<Loans />} />
+        <Route path="/calculators" element={<Calculators />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/apply" element={<Placeholder title="Apply for Loan" />} />
+
+
+        {/* CALCULATORS */}
         <Route path="/emi-calculator" element={<EmiCalculator />} />
         <Route path="/personal-loan-calculator" element={<PersonalCalculator />} />
         <Route path="/home-loan-calculator" element={<HomeLoanCalculator />} />
@@ -40,14 +55,13 @@ function App() {
         <Route path="/commercial-vehicle-loan-calculator" element={<CommercialVehicleLoanCalculator />} />
         <Route path="/gst-calculator" element={<GSTCalculator />} />
 
-        <Route path="/calculators" element={<Calculators />} />
-        <Route path="/apply" element={<Placeholder title="Apply for Loan" />} />
 
-        {/* Loan pages */}
-        <Route path="/loans/personal" element={<Placeholder title="Personal Loan" />} />
-        <Route path="/loans/home" element={<Placeholder title="Home Loan" />} />
-        <Route path="/loans/business" element={<Placeholder title="Business Loan" />} />
-        <Route path="/loans/education" element={<Placeholder title="Education Loan" />} />
+        {/* TYPES OF LOANS */}
+        <Route path="/loans/personal" element={<PersonalLoan />} />
+        <Route path="/loans/home" element={<HomeLoan />} />
+        <Route path="/loans/gold" element={<GoldLoan/>} />
+        <Route path="/loans/business" element={<BusinessLoan/>} />
+        <Route path="/loans/education" element={<EducationLoan/>} />
         <Route path="/loans/vehicle" element={<Placeholder title="Vehicle Loan" />} />
       </Routes>
     </>

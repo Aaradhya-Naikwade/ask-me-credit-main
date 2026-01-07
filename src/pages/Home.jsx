@@ -11,8 +11,8 @@ import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-
 import "./styles/Home.css";
+// import LoanForm from "../components/LoanForm";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Home = () => {
 
   return (
     <>
+      {/* <LoanForm /> */}
       <Navbar />
       <main className="home">
         {/* Modern Background Accents */}
