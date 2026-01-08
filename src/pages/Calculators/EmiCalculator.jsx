@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -13,6 +14,10 @@ const EmiCalculator = () => {
     const [schedule, setSchedule] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
     const [activeFaq, setActiveFaq] = useState(null);
+    const [showSchedule, setShowSchedule] = useState(false);
+    
+    // auto-scroll
+    const scheduleRef = useRef(null);
 
     useEffect(() => {
         const r = rate / 12 / 100;
@@ -41,8 +46,20 @@ const EmiCalculator = () => {
     const rateFill = ((rate - 8) / (24 - 8)) * 100;
     const tenureFill = ((tenure - 12) / (60 - 12)) * 100;
 
-    // Logic to show 5 rows or all
     const visibleSchedule = isExpanded ? schedule : schedule.slice(0, 5);
+
+    // Function to toggle schedule and scroll into view
+    const toggleSchedule = () => {
+        const nextState = !showSchedule;
+        setShowSchedule(nextState);
+        
+        if (nextState) {
+            // Small timeout to allow the element to render before scrolling
+            setTimeout(() => {
+                scheduleRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100);
+        }
+    };
 
     const faqs = [
         { q: "What is an EMI?", a: "EMI stands for Equated Monthly Installment. It is a fixed amount paid every month toward your loan." },
@@ -56,7 +73,6 @@ const EmiCalculator = () => {
 
             <section className="emi-header">
                 <div className="container">
-                    {/* <span className="section-pill">Planning Tools</span> */}
                     <h1>EMI <span>Calculator</span></h1>
                     <p>Adjust the sliders to see your monthly breakdown instantly.</p>
                 </div>
@@ -78,6 +94,13 @@ const EmiCalculator = () => {
                                 <div><strong>No Hidden Charges</strong><p>Clear principal and interest split.</p></div>
                             </div>
                         </div>
+
+                        <button 
+                            className="schedule-trigger-btn" 
+                            onClick={toggleSchedule}
+                        >
+                            {showSchedule ? "Hide Repayment Schedule" : "Check Your Repayment Schedule"}
+                        </button>
                     </div>
 
                     {/* RIGHT SIDE - CALCULATOR CARD */}
@@ -115,41 +138,52 @@ const EmiCalculator = () => {
                     </div>
                 </div>
 
-                {/* Repayment Schedule */}
-                <div className="demo">
-                    <div className="container schedule-section">
-                        <h2 className="schedule-main-title">Check <span>Repayment Schedule</span></h2>
+                {/* REPAYMENT SCHEDULE SECTION */}
+                <AnimatePresence>
+                    {showSchedule && (
+                        <motion.div 
+                            ref={scheduleRef}
+                            className="demo"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <div className="container schedule-section">
+                                <h2 className="schedule-main-title">Check <span>Repayment Schedule</span></h2>
 
-                        <div className="table-responsive">
-                            <table className="amort-table">
-                                <thead>
-                                    <tr>
-                                        <th>Month</th>
-                                        <th>Principal</th>
-                                        <th>Interest</th>
-                                        <th>Balance</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {visibleSchedule.map((row) => (
-                                        <tr key={row.month}>
-                                            <td>{row.month}</td>
-                                            <td>₹{row.principal.toLocaleString()}</td>
-                                            <td>₹{row.interest.toLocaleString()}</td>
-                                            <td>₹{row.balance.toLocaleString()}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                                <div className="table-responsive">
+                                    <table className="amort-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Month</th>
+                                                <th>Principal</th>
+                                                <th>Interest</th>
+                                                <th>Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {visibleSchedule.map((row) => (
+                                                <tr key={row.month}>
+                                                    <td>{row.month}</td>
+                                                    <td>₹{row.principal.toLocaleString()}</td>
+                                                    <td>₹{row.interest.toLocaleString()}</td>
+                                                    <td>₹{row.balance.toLocaleString()}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                        <div className="center-btn-box">
-                            <button className="view-more-btn" onClick={() => setIsExpanded(!isExpanded)}>
-                                {isExpanded ? "View Less" : "View More"}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                                <div className="center-btn-box">
+                                    <button className="view-more-btn" onClick={() => setIsExpanded(!isExpanded)}>
+                                        {isExpanded ? "View Less" : "View More"}
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </section>
 
             {/* FAQ SECTION */}
@@ -166,7 +200,12 @@ const EmiCalculator = () => {
                             </button>
                             <AnimatePresence>
                                 {activeFaq === i && (
-                                    <motion.div className="faq-answer" initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                                    <motion.div 
+                                        className="faq-answer" 
+                                        initial={{ height: 0, opacity: 0 }} 
+                                        animate={{ height: "auto", opacity: 1 }} 
+                                        exit={{ height: 0, opacity: 0 }}
+                                    >
                                         <p>{f.a}</p>
                                     </motion.div>
                                 )}

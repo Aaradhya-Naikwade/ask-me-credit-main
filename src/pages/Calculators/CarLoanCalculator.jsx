@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -13,6 +13,10 @@ const CarLoanCalculator = () => {
   const [schedule, setSchedule] = useState([]);
   const [expanded, setExpanded] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [showSchedule, setShowSchedule] = useState(false);
+
+  // Ref for auto-scrolling
+  const scheduleRef = useRef(null);
 
   /* ================= EMI LOGIC ================= */
   useEffect(() => {
@@ -50,6 +54,17 @@ const CarLoanCalculator = () => {
 
   const visibleRows = expanded ? schedule : schedule.slice(0, 5);
 
+  // Toggle function with smooth scroll
+  const toggleSchedule = () => {
+    const nextState = !showSchedule;
+    setShowSchedule(nextState);
+    if (nextState) {
+      setTimeout(() => {
+        scheduleRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  };
+
   const faqs = [
     {
       q: "What is a Car Loan EMI?",
@@ -72,7 +87,6 @@ const CarLoanCalculator = () => {
       {/* HEADER */}
       <section className="emi-header">
         <div className="container">
-          {/* <span className="section-pill">Vehicle Loan Tools</span> */}
           <h1>Car Loan <span>Calculator</span></h1>
           <p>
             Calculate your car loan EMI instantly and plan your purchase smartly.
@@ -80,7 +94,7 @@ const CarLoanCalculator = () => {
         </div>
       </section>
 
-      {/* CALCULATOR */}
+      {/* MAIN CONTENT */}
       <section className="emi-container">
         <div className="emi-content-grid container">
 
@@ -109,9 +123,14 @@ const CarLoanCalculator = () => {
                 </div>
               </div>
             </div>
+
+            {/* Schedule Toggle Button */}
+            <button className="schedule-trigger-btn" onClick={toggleSchedule}>
+              {showSchedule ? "Hide Repayment Schedule" : "Check Your Repayment Schedule"}
+            </button>
           </div>
 
-          {/* RIGHT CARD */}
+          {/* RIGHT CALCULATOR CARD */}
           <div className="emi-card-side">
             <div className="modern-calc">
               <div className="calc-body">
@@ -154,7 +173,7 @@ const CarLoanCalculator = () => {
                   <div className="label-row">
                     <label>Loan Tenure</label>
                     <span className="value-display">
-                      {tenure} Months
+                      {tenure} Months ({Math.round(tenure / 12)} Yrs)
                     </span>
                   </div>
                   <input
@@ -182,46 +201,57 @@ const CarLoanCalculator = () => {
           </div>
         </div>
 
-        {/* REPAYMENT TABLE */}
-        <div className="demo">
-          <div className="container schedule-section">
-            <h2 className="schedule-main-title">
-              Car Loan <span>Repayment Schedule</span>
-            </h2>
+        {/* ANIMATED REPAYMENT TABLE */}
+        <AnimatePresence>
+          {showSchedule && (
+            <motion.div 
+              ref={scheduleRef}
+              className="demo"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <div className="container schedule-section">
+                <h2 className="schedule-main-title">
+                  Car Loan <span>Repayment Schedule</span>
+                </h2>
 
-            <div className="table-responsive">
-              <table className="amort-table">
-                <thead>
-                  <tr>
-                    <th>Month</th>
-                    <th>Principal</th>
-                    <th>Interest</th>
-                    <th>Balance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {visibleRows.map((row) => (
-                    <tr key={row.month}>
-                      <td>{row.month}</td>
-                      <td>₹{row.principal.toLocaleString()}</td>
-                      <td>₹{row.interest.toLocaleString()}</td>
-                      <td>₹{row.balance.toLocaleString()}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                <div className="table-responsive">
+                  <table className="amort-table">
+                    <thead>
+                      <tr>
+                        <th>Month</th>
+                        <th>Principal</th>
+                        <th>Interest</th>
+                        <th>Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {visibleRows.map((row) => (
+                        <tr key={row.month}>
+                          <td>{row.month}</td>
+                          <td>₹{row.principal.toLocaleString()}</td>
+                          <td>₹{row.interest.toLocaleString()}</td>
+                          <td>₹{row.balance.toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-            <div className="center-btn-box">
-              <button
-                className="view-more-btn"
-                onClick={() => setExpanded(!expanded)}
-              >
-                {expanded ? "View Less" : "View More"}
-              </button>
-            </div>
-          </div>
-        </div>
+                <div className="center-btn-box">
+                  <button
+                    className="view-more-btn"
+                    onClick={() => setExpanded(!expanded)}
+                  >
+                    {expanded ? "View Less" : "View More"}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* FAQ */}
@@ -250,9 +280,9 @@ const CarLoanCalculator = () => {
                 {activeFaq === i && (
                   <motion.div
                     className="faq-answer"
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    exit={{ height: 0 }}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
                   >
                     <p>{f.a}</p>
                   </motion.div>

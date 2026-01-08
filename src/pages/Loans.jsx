@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./styles/Loans.css";
+import Footer from "../components/Footer";
+
 
 const loanTypes = [
   {
@@ -73,7 +75,6 @@ const loanTypes = [
       "Loans designed for trucks, buses, and commercial vehicles to grow your fleet.",
     link: "/loans/commercial-vehicle",
     image: "/images/loans/gold.png",
-
   },
 ];
 

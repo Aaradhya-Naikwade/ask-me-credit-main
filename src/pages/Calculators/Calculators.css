@@ -1,7 +1,10 @@
+/* ===== GLOBAL WRAPPER ===== */
 .page-wrapper {
     background-color: #fcfcfd;
     width: 100%;
     overflow-x: hidden;
+    /* font-family: 'Inter', sans-serif; */
+    /* Assuming Inter or similar */
 }
 
 .container {
@@ -18,11 +21,9 @@
 
 .emi-header h1 {
     font-size: clamp(2rem, 8vw, 3.5rem);
-    /* Responsive Font */
     font-weight: 800;
     color: #0f172a;
     margin-top: 16px;
-    padding: 0 10px;
 }
 
 .emi-header h1 span {
@@ -34,20 +35,9 @@
     max-width: 640px;
     margin: 12px auto 0;
     font-size: clamp(0.95rem, 4vw, 1.1rem);
-    padding: 0 20px;
 }
 
-.section-pill {
-    background: #e0ecff;
-    color: #2563eb;
-    padding: 6px 18px;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-/* ===== MAIN GRID ===== */
+/* ===== MAIN CONTENT GRID ===== */
 .emi-container {
     padding: 40px 0 80px;
 }
@@ -55,16 +45,24 @@
 .emi-content-grid {
     display: grid;
     grid-template-columns: 1fr 500px;
-    /* Desktop */
     gap: 60px;
     align-items: start;
 }
 
-/* LEFT SIDE */
+/* LEFT SIDE - INFO */
+.emi-info-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: space-between;
+}
+
 .emi-info-side h2 {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: #0f172a;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .emi-info-side p {
@@ -78,12 +76,12 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .prop {
     display: flex;
     gap: 1rem;
-    text-align: left;
 }
 
 .prop-dot {
@@ -96,7 +94,28 @@
     box-shadow: 0 0 0 4px #dbeafe;
 }
 
-/* ===== CALCULATOR CARD ===== */
+/* NEW TRIGGER BUTTON (Left Side Bottom) */
+.schedule-trigger-btn {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.schedule-trigger-btn:hover {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+    transform: translateY(-2px);
+}
+
+/* ===== CALCULATOR CARD (Right Side) ===== */
 .modern-calc {
     background: #ffffff;
     border-radius: 24px;
@@ -104,6 +123,7 @@
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     width: 100%;
+    max-width: 100%;
 }
 
 .calc-body {
@@ -126,12 +146,14 @@
     color: #2563eb;
 }
 
-/* SLIDER RANGE */
+/* CUSTOM RANGE SLIDER */
 input[type="range"] {
     width: 100%;
     height: 6px;
     appearance: none;
-    background: linear-gradient(#2563eb, #2563eb) no-repeat, #f1f5f9;
+    background: #f1f5f9;
+    background-image: linear-gradient(#2563eb, #2563eb);
+    background-repeat: no-repeat;
     border-radius: 10px;
     outline: none;
 }
@@ -147,7 +169,7 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
 
-/* FOOTER */
+/* CALC FOOTER */
 .calc-footer {
     background: #f8fafc;
     padding: 30px;
@@ -186,61 +208,14 @@ input[type="range"]::-webkit-slider-thumb {
     background: #1d4ed8;
 }
 
-.disclaimer {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    margin-top: 12px;
+/* ===== REPAYMENT SCHEDULE SECTION ===== */
+.demo {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px dashed #e2e8f0;
 }
 
-/* ===== MOBILE RESPONSIVE (CRITICAL FIXES) ===== */
-@media (max-width: 1024px) {
-    .emi-content-grid {
-        grid-template-columns: 1fr;
-        /* Stacks column */
-        gap: 40px;
-        text-align: center;
-    }
-
-    .emi-info-side {
-        order: 2;
-        /* Moves text below calculator on tablet/mobile if desired */
-    }
-
-    .emi-card-side {
-        order: 1;
-        width: 100%;
-        max-width: 550px;
-        margin: 0 auto;
-    }
-
-    .prop {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .emi-header {
-        padding-top: 100px;
-    }
-
-    .calc-body {
-        padding: 20px;
-    }
-
-    .calc-footer {
-        padding: 20px;
-    }
-
-    .emi-container {
-        padding-bottom: 40px;
-    }
-}
-
-
-
-/* Schedule Section - Centered */
 .schedule-section {
-    margin-top: 80px;
     text-align: center;
 }
 
@@ -251,9 +226,10 @@ input[type="range"]::-webkit-slider-thumb {
     color: #0f172a;
 }
 
-.schedule-main-title span { color: #2563eb; }
+.schedule-main-title span {
+    color: #2563eb;
+}
 
-/* Table Box */
 .table-responsive {
     max-width: 900px;
     margin: 0 auto;
@@ -261,13 +237,16 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 16px;
     border: 1px solid #e5edff;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     overflow-x: auto;
+    /* Vital for mobile */
 }
 
 .amort-table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 500px;
+    /* Prevents squishing on mobile */
 }
 
 .amort-table th {
@@ -276,6 +255,7 @@ input[type="range"]::-webkit-slider-thumb {
     color: #64748b;
     font-size: 0.85rem;
     text-transform: uppercase;
+    text-align: left;
 }
 
 .amort-table td {
@@ -283,9 +263,9 @@ input[type="range"]::-webkit-slider-thumb {
     border-top: 1px solid #f1f5f9;
     color: #1e293b;
     font-weight: 500;
+    text-align: left;
 }
 
-/* Center Button */
 .center-btn-box {
     margin-top: 30px;
     display: flex;
@@ -295,25 +275,18 @@ input[type="range"]::-webkit-slider-thumb {
 .view-more-btn {
     background: #2563eb;
     color: white;
-    padding: 14px 32px;
+    padding: 12px 32px;
     border-radius: 999px;
     font-weight: 700;
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
-.view-more-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
-
-
-/* FAQ Accordion Styles */
+/* ===== FAQ SECTION ===== */
 .faq-section {
     padding: 100px 0;
-    max-width: 800px !important; /* Narrower for better reading */
+    max-width: 800px !important;
 }
 
 .faq-header {
@@ -321,28 +294,16 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 40px;
 }
 
-.faq-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-}
-
-.faq-accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
 .faq-card {
     background: #ffffff;
     border: 1px solid #e5edff;
     border-radius: 16px;
+    margin-bottom: 15px;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .faq-card.active {
     border-color: #2563eb;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
 }
 
 .faq-question {
@@ -350,101 +311,191 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 24px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background: none;
     border: none;
-    outline: none;
     cursor: pointer;
-    text-align: left;
     font-size: 1.1rem;
     font-weight: 700;
     color: #0f172a;
 }
 
-.arrow-icon {
-    font-size: 0.8rem;
-    color: #2563eb;
-    transition: transform 0.3s ease;
-}
-
-.faq-card.active .arrow-icon {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    overflow: hidden;
-}
-
 .faq-answer p {
-    padding: 0 24px 24px 24px;
+    padding: 0 24px 24px;
     color: #64748b;
     line-height: 1.6;
-    font-size: 1rem;
-    margin: 0;
 }
 
-/* Updated Responsive Design */
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+/* Tablet & Smaller Desktops */
 @media (max-width: 1024px) {
     .emi-content-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
     }
-    
+
     .emi-info-side {
+        order: 2;
+        align-items: center;
         text-align: center;
     }
+
+    .emi-card-side {
+        order: 1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .modern-calc{
+        width: 500px;
+    }
+
     
-    .amort-btn-toggle {
-        margin: 20px auto 0;
+
+    .prop {
+        text-align: left;
     }
 }
 
+/* Mobile Devices */
 @media (max-width: 480px) {
-    .faq-question {
+    .emi-header {
+        padding-top: 80px;
+    }
+
+
+    .calc-body,
+    .calc-footer {
         padding: 20px;
+    }
+
+    .schedule-main-title {
+        font-size: 1.6rem;
+    }
+
+    .modern-calc{
+        width: 100%;
+    }
+
+    .faq-question {
+        padding: 18px;
         font-size: 1rem;
     }
-    .faq-answer p {
-        padding: 0 20px 20px 20px;
+
+    .demo .container {
+        padding-left: 0;
+        padding-right: 0;
     }
 
-}
-
-
-/* For removing table padding only */
-.demo .container{
-    padding-left: 0px;
-    padding-right: 0px;
+    .schedule-trigger-btn {
+        width: 100%;
+    }
 }
 
 
 
+/* For GST Calculator */
 
-/* For GST calculator */
+
+/* Toggle Container for Exclusive/Inclusive */
 .gst-toggle {
   display: flex;
-  gap: 10px;
+  background: #f1f5f9;
+  padding: 5px;
+  border-radius: 12px;
+  gap: 5px;
+  margin-bottom: 10px;
 }
 
 .gst-toggle button {
   flex: 1;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #f8f9fb;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: #64748b;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .gst-toggle button.active {
   background: #2563eb;
-  color: #fff;
-  border-color: #2563eb;
+  color: var(--primary-color, #ffffff);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* Results Grid inside the Footer */
 .gst-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.gst-results h3 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+/* Total Amount Highlights */
+.total-box {
+  text-align: center;
+  background: var(--light-bg, #f8fafc);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.total-box .res-value {
+  color: var(--primary-color, #2563eb);
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
+/* Responsive tweaks for GST Results */
+@media (max-width: 480px) {
+  .gst-results {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+.slider-box {
+  margin-bottom: 25px;
+}
+
+.label-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 12px;
+}
+
+.label-row label {
+  font-weight: 600;
+  color: #475569;
+}
+
+.value-display {
+  font-weight: 700;
+  color: var(--primary-color, #2563eb);
+  /* background: #eff6ff; */
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  appearance: none;
+  background-image: linear-gradient(var(--primary-color, #2563eb), var(--primary-color, #2563eb));
+  background-repeat: no-repeat;
 }

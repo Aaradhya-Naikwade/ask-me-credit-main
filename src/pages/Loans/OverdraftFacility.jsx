@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import LoanForm from '../../components/LoanForm';
 import './Loans.css';
 
-const PersonalLoan = () => {
+const OverdraftFacility = () => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const toggleFAQ = (index) => {
@@ -12,10 +12,10 @@ const PersonalLoan = () => {
     };
 
     const faqs = [
-        { q: "What is the maximum loan amount I can get?", a: "You can avail a personal loan up to ₹40 Lakhs depending on your monthly income, credit score, and repayment capacity." },
-        { q: "How long does the approval process take?", a: "With our 100% digital process, initial approval is instant, and funds are usually disbursed within 24 hours after verification." },
-        { q: "Are there any hidden charges?", a: "We maintain complete transparency. All processing fees and interest rates are communicated upfront before you sign the agreement." },
-        { q: "Can I prepay my loan early?", a: "Yes, you can make part-payments or full foreclosure of your loan after the initial 6-12 month period, subject to nominal charges." }
+        { q: "How does an Overdraft Facility work?", a: "An Overdraft is a credit line linked to your current or savings account. You can withdraw funds up to a pre-approved limit, and interest is only charged on the amount you actually use, for the duration you use it." },
+        { q: "Is interest charged on the entire limit?", a: "No. Unlike a term loan, interest is calculated daily only on the utilized amount. If you don't use the facility, you pay zero interest." },
+        { q: "What can I pledge as security for OD?", a: "We offer Overdrafts against Property (ODAP), Fixed Deposits (ODFD), or even unsecured Business Overdrafts based on your financial turnover." },
+        { q: "What is the renewal process?", a: "Overdraft limits are usually sanctioned for 12 months and are renewed annually based on a review of your account conduct and latest financials." }
     ];
 
     const DocIcon = () => (
@@ -30,11 +30,11 @@ const PersonalLoan = () => {
             <header className="pl-hero-header">
                 <div className="pl-container pl-hero-grid">
                     <div className="pl-hero-left">
-                        <h1>Personal Loan</h1>
-                        <p>Get instant funds for your personal needs with competitive interest rates and a completely digital process.</p>
+                        <h1>Overdraft Facility</h1>
+                        <p>Enjoy the freedom of an on-demand credit line. Pay interest only on what you use and manage your cash flow like a pro.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Personal Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/personal-loan-hero.avif" alt="Overdraft Facility" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>
@@ -43,13 +43,13 @@ const PersonalLoan = () => {
             <section className="pl-main-section">
                 <div className="pl-container pl-content-grid">
                     <div className="pl-info-column">
-                        <span className="pl-section-pill">Fast Approval</span>
-                        <h2 className="pl-main-heading">Flexible loans for all your needs</h2>
+                        <span className="pl-section-pill">Smart Liquidity</span>
+                        <h2 className="pl-main-heading">Credit when you need it</h2>
                         <div className="pl-value-props">
-                            {['Paperless Process', 'Fast Disbursal', 'No Collateral', 'Attractive Rates'].map((item, i) => (
+                            {['Interest on Utilization', 'Flexible Withdrawals', 'No EMI Pressure', 'Reusable Credit Limit'].map((item, i) => (
                                 <div className="pl-prop-item" key={i}>
                                     <div className="pl-prop-dot"></div>
-                                    <div><strong>{item}</strong><p>Digital journey with instant verification.</p></div>
+                                    <div><strong>{item}</strong><p>Optimized for managing short-term financial mismatches.</p></div>
                                 </div>
                             ))}
                         </div>
@@ -65,13 +65,13 @@ const PersonalLoan = () => {
                         <span className="pl-section-pill">Check Criteria</span>
                         <h2 className="pl-main-heading">Eligibility Criteria</h2>
                         <div className="pl-value-props">
-                            {['Age: 21 - 60 years', 'Income: Min. ₹25,000 monthly', 'Employment: Salaried/Self-Employed', 'CIBIL Score: 750+ preferred'].map((text, i) => (
+                            {['Entity: Individual, Firm, or Company', 'Account: Active current/savings account', 'Financials: Healthy cash flow history', 'Security: Optional (Secured/Unsecured)'].map((text, i) => (
                                 <div className="pl-prop-item" key={i}><div className="pl-prop-dot"></div><div>{text}</div></div>
                             ))}
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* <img src="https://img.freepik.com/free-vector/eligibility-concept-illustration_114360-6395.jpg" alt="Eligibility" /> */}
+                        {/* Image of cash flow management */}
                     </div>
                 </div>
             </section>
@@ -83,7 +83,7 @@ const PersonalLoan = () => {
                         <h2 className="pl-main-heading">Documents Required</h2>
                     </div>
                     <div className="pl-docs-grid">
-                        {['Identity Proof', 'Address Proof', 'Income Proof', 'Bank Statements'].map((title, i) => (
+                        {['6-12 Months Bank Statements', 'KYC of Business & Partners', 'Latest ITR & Computation', 'Audit Report (if applicable)'].map((title, i) => (
                             <div className="pl-doc-card" key={i}>
                                 <div className="pl-doc-icon"><DocIcon /></div>
                                 <h3>{title}</h3>
@@ -121,4 +121,4 @@ const PersonalLoan = () => {
     );
 };
 
-export default PersonalLoan;
+export default OverdraftFacility;

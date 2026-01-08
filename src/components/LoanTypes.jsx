@@ -94,7 +94,7 @@ const LoanTypes = () => {
                 ))}
               </ul>
 
-              {/* Wrapped button in a Link component */}
+              {/* Wrapped button */}
               <Link to={loan.link} className="loan-btn-link">
                 <button className="loan-btn">
                   Apply Now
@@ -113,6 +113,7 @@ const LoanTypes = () => {
             </motion.div>
           ))}
         </div>
+        
       </div>
     </section>
   );

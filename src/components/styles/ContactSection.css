@@ -1,13 +1,13 @@
 .contact-section {
   padding: 100px 0;
-  background-color: #0f172a; /* Solid Deep Navy */
+  background-color: #10203F;
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
 }
 
 .contact-container {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   gap: 80px;
 }
@@ -95,7 +95,7 @@
   width: 100%;
   max-width: 500px;
   border-radius: 40px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); */
 }
 
 /* Responsive */
@@ -105,8 +105,20 @@
     text-align: center;
     gap: 60px;
   }
-  .contact-left h2 { font-size: 2.5rem; }
-  .contact-left p { margin: 0 auto 30px; }
-  .contact-actions { justify-content: center; }
-  .contact-img-wrapper { justify-content: center; }
+
+  .contact-left h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-left p {
+    margin: 0 auto 30px;
+  }
+
+  .contact-actions {
+    justify-content: center;
+  }
+
+  .contact-img-wrapper {
+    justify-content: center;
+  }
 }

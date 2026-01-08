@@ -1,7 +1,10 @@
+
 import React from "react";
 import { motion } from "framer-motion";
+import { FiMail, FiPhone, FiLinkedin, FiTwitter, FiInstagram } from "react-icons/fi";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import LoanForm from "../components/LoanForm";
 import "./styles/Contact.css";
 
 const Contact = () => {
@@ -19,7 +22,7 @@ const Contact = () => {
           >
             <span className="kicker">Get in Touch</span>
             <h1>Let’s start a <span>Conversation.</span></h1>
-            <p>Direct access to our financial experts and support teams.</p>
+            <p>Our financial experts are here to help you navigate your credit journey.</p>
           </motion.div>
 
           <div className="contact-main-grid">
@@ -30,83 +33,48 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="info-item">
-                <div className="info-icon">📧</div>
-                <div>
-                  <h4>Email Us</h4>
+              <div className="info-card">
+                <div className="info-icon">
+                  <FiMail />
+                </div>
+                <div className="info-details">
+                  <h4>Email Support</h4>
                   <p>support@askmecredit.com</p>
-                  <span>Response time: Under 2 hours</span>
+                  <span className="status-tag">Response in 2 hours</span>
                 </div>
               </div>
 
-              <div className="info-item">
-                <div className="info-icon">📞</div>
-                <div>
-                  <h4>Call Our Hotline</h4>
+              <div className="info-card">
+                <div className="info-icon">
+                  <FiPhone />
+                </div>
+                <div className="info-details">
+                  <h4>Advisory Hotline</h4>
                   <p>+91 1800 123 4567</p>
-                  <span>Mon-Sat, 9am - 7pm</span>
+                  <span className="status-tag">Mon-Sat, 9am - 7pm</span>
                 </div>
               </div>
 
-              <div className="info-item">
-                <div className="info-icon">📍</div>
-                <div>
-                  <h4>Visit Headquarters</h4>
-                  <p>Level 14, BKC Financial Centre,<br />Mumbai, MH 400051</p>
-                </div>
-              </div>
-
-              <div className="social-presence">
-                <h5>Follow our updates</h5>
-                <div className="social-row">
-                  <span>LinkedIn</span>
-                  <span>Twitter</span>
-                  <span>Instagram</span>
+              <div className="social-section">
+                <h5>Global Presence</h5>
+                <div className="social-links-grid">
+                  <a href="#" className="social-link-item"><FiLinkedin /> LinkedIn</a>
+                  <a href="#" className="social-link-item"><FiTwitter /> Twitter</a>
+                  <a href="#" className="social-link-item"><FiInstagram /> Instagram</a>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right side: Modern Form */}
+            {/* Right side: Integrated LoanForm */}
             <motion.div 
-              className="contact-form-panel"
+              className="contact-form-container"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <form className="modern-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Doe" />
-                  </div>
-                  <div className="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="john@company.com" />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label>Subject</label>
-                  <select>
-                    <option>Loan Inquiry</option>
-                    <option>Technical Support</option>
-                    <option>Business Partnership</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea rows="5" placeholder="How can we help you?"></textarea>
-                </div>
-
-                <button type="submit" className="form-submit-btn">
-                  Send Message
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                  </svg>
-                </button>
-              </form>
+              <div className="form-wrapper-inner">
+                <LoanForm />
+              </div>
             </motion.div>
           </div>
         </div>

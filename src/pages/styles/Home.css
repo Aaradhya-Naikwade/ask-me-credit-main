@@ -37,7 +37,6 @@
   left: -50px;
 }
 
-/* ✅ FULL HEIGHT RIGHT IMAGE */
 .home-bg-image {
   position: absolute;
   top: 0;
@@ -72,10 +71,11 @@
 }
 
 .home-content h1 {
-  font-size: 4rem;
+  font-size: 4.25rem;
   font-weight: 800;
   color: whitesmoke;
   line-height: 1.1;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .gradient-text {
@@ -86,9 +86,10 @@
 
 .home-content p {
   margin-top: 24px;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: whitesmoke;
   line-height: 1.6;
+  max-width: 500px;
 }
 
 /* Buttons */

@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     <div className="about-page">
       <Navbar />
-      
+            
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">

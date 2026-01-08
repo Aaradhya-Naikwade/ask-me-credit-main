@@ -1,0 +1,125 @@
+.terms-page-wrapper {
+  background-color: #fcfcfd;
+  overflow-x: hidden;
+}
+
+.terms-hero {
+  padding: 140px 0 100px;
+  background: radial-gradient(circle at 0% 0%, #f0f4ff 0%, transparent 40%);
+}
+
+.terms-intro {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.terms-intro h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.terms-intro span { color: #2563eb; }
+
+/* Grid Layout */
+.terms-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr; /* Narrower nav, wider content */
+  gap: 40px;
+  align-items: start;
+}
+
+/* Sidebar Navigation */
+.nav-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #f1f5f9;
+  position: sticky;
+  top: 100px; /* Keeps it in view while scrolling */
+}
+
+.nav-card h5 {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.2px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.nav-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-card ul li {
+  margin-bottom: 12px;
+}
+
+.nav-card ul li a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-card ul li a:hover {
+  color: #2563eb;
+}
+
+.help-box {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.help-box p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.help-box a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Content Panel */
+.content-card {
+  background: white;
+  padding: 50px;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.content-card section {
+  margin-bottom: 40px;
+}
+
+.content-card h3 {
+  color: #0f172a;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.content-card p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .terms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .terms-nav-panel {
+    display: none; /* Hide sidebar on mobile for better flow */
+  }
+}
