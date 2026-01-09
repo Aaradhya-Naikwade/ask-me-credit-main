@@ -12,20 +12,65 @@ const app = express();
 
 /* ---------- MIDDLEWARE ---------- */
 
-// VERY IMPORTANT: parse JSON body
+// Parse JSON body
 app.use(express.json());
 
-// CORS (local + future production)
+// CORS (environment-based, no URL change needed in code)
+const allowedOrigins = [
+  "http://localhost:5173",          // local frontend
+  process.env.FRONTEND_URL          // production frontend (Vercel)
+];
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // Allow requests with no origin (Postman, mobile apps, server-to-server)
+//       if (!origin) return callback(null, true);
+
+//       if (allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"]
+//   })
+// );
+
+// // Allow preflight requests
+// app.options("*", cors());
+
+
+
+// CORS (production-safe for Vercel + local)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      // Allow requests with no origin (Postman, server-side)
+      if (!origin) return callback(null, true);
+
+      // Allow local development
+      if (origin === "http://localhost:5173") {
+        return callback(null, true);
+      }
+
+      // Allow any Vercel frontend
+      if (origin.endsWith(".vercel.app")) {
+        return callback(null, true);
+      }
+
+      // Otherwise block
+      return callback(new Error("Not allowed by CORS"));
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
-// VERY IMPORTANT: allow preflight requests
+// Allow preflight requests
 app.options("*", cors());
+
 
 /* ---------- DATABASE ---------- */
 connectDB();
@@ -41,6 +86,6 @@ app.get("/", (req, res) => {
 
 /* ---------- SERVER ---------- */
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () =>
-  console.log(`🚀 Server running on port ${PORT}`)
-);
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
