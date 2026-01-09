@@ -6,25 +6,25 @@ const values = [
     id: 1,
     title: "Team-First",
     desc: "We win together through trust and transparency.",
-    icon: ""
+    image: "/images/culture-section/team-first.png" 
   },
   {
     id: 2,
     title: "Bold Innovation",
     desc: "We experiment, learn, and lead.",
-    icon: ""
+    image: "/images/culture-section/bold-innovation.png"
   },
   {
     id: 3,
     title: "People-Focused",
     desc: "Customers aren’t users—they’re our purpose.",
-    icon: ""
+    image: "/images/culture-section/people-focused.png"
   },
   {
     id: 4,
     title: "Always Evolving",
     desc: "Change fuels our growth.",
-    icon: ""
+    image: "/images/culture-section/always-evolving.png"
   },
 ];
 
@@ -41,7 +41,7 @@ const CultureSection = () => {
         >
           <h2>Build the Future of Financial Freedom</h2>
           <p>
-            We’re more than a fintech—we’re a collective of thinkers and builders redefining how India experiences money. United by purpose, we design financial solutions that make progress possible for everyone
+            We’re more than a fintech—we’re a collective of thinkers and builders redefining how India experiences money.
           </p>
         </motion.div>
 
@@ -55,14 +55,15 @@ const CultureSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="card-icon">{item.icon}</div>
+              {/* Image Container updated for top-left placement */}
+              <div className="card-image-wrapper">
+                <img src={item.image} alt={item.title} className="culture-image" />
+              </div>
               <div className="card-text">
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
             </motion.div>
-
-
           ))}
         </div>
       </div>

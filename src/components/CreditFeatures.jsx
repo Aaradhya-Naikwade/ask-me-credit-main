@@ -57,7 +57,7 @@ const CreditFeatures = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="image-wrapper"> 
-            <img src="/images/Frame__5_-removebg-preview.png" alt="Credit Features" />
+            <img src="/images/credit-feature.png" alt="Credit Features" />
             <div className="feature-overlay-card">
               <h4>98%</h4>
               <p>Approval Rate</p>
