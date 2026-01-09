@@ -31,13 +31,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+        max-width: 1000px;
 }
 
 .pl-hero-left h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 800;
 
+    
     line-height: 4.25rem;
     margin-bottom: 10px;
 }
@@ -49,9 +51,12 @@
 }
 
 .pl-hero-bottom-img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     display: block;
+
+
+    margin-right: -30px;
 }
 
 /* Sections */
