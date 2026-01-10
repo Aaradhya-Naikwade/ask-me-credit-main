@@ -54,7 +54,7 @@ const LoanAgainstProperty = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="pl-form-column"><LoanForm /></div>
+                    <div className="pl-form-column"><LoanForm defaultLoanType="Loan Against Property" /></div>
                 </div>
             </section>
 

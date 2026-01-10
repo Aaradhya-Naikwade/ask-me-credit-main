@@ -54,7 +54,9 @@ const HomeLoan = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="pl-form-column"><LoanForm /></div>
+                    <div className="pl-form-column"><LoanForm defaultLoanType="Home Loan" /></div>
+
+
                 </div>
             </section>
 

@@ -54,7 +54,7 @@ const OverdraftFacility = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="pl-form-column"><LoanForm /></div>
+                    <div className="pl-form-column"><LoanForm defaultLoanType="Overdraft Facility" /></div>
                 </div>
             </section>
 

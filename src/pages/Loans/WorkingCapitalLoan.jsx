@@ -54,7 +54,7 @@ const WorkingCapitalLoan = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="pl-form-column"><LoanForm /></div>
+                    <div className="pl-form-column"><LoanForm defaultLoanType="Working Capital Loan" /></div>
                 </div>
             </section>
 
