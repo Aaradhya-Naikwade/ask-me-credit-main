@@ -80,7 +80,7 @@ const LoanForm = ({ defaultLoanType = "" }) => {
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
       >
-        <CheckCircle size={60} color="#22c55e" />
+        <CheckCircle size={60} color="#2664eb" />
         <h3>Application Sent!</h3>
         <p>Our team will contact you shortly.</p>
         <button
@@ -145,7 +145,14 @@ const LoanForm = ({ defaultLoanType = "" }) => {
               <option value="Personal Loan">Personal Loan</option>
               <option value="Home Loan">Home Loan</option>
               <option value="Business Loan">Business Loan</option>
-              <option value="Car Loan">Vehicle Loan</option>
+              <option value="Education Loan">Education Loan</option>
+              <option value="Working Capital Loan">Working Capital Loan</option>
+              <option value="Loan Against Property">Loan Against Property</option>
+              <option value="Car Loan">Car Loan</option>
+              <option value="Gold Loan">Gold Loan</option>
+              <option value="Two Wheeler Loan">Two Wheeler Loan</option>
+              <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
+
             </select>
           </div>
 
@@ -167,9 +174,8 @@ const LoanForm = ({ defaultLoanType = "" }) => {
 
         <motion.button
           whileTap={{ scale: 0.98 }}
-          className={`premium-submit ${
-            status === "loading" ? "btn-loading" : ""
-          }`}
+          className={`premium-submit ${status === "loading" ? "btn-loading" : ""
+            }`}
           type="submit"
           disabled={status === "loading"}
         >
