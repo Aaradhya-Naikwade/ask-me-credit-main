@@ -5,6 +5,7 @@ import CreditFeatures from "../components/CreditFeatures";
 import StatsSection from "../components/StatsSection";
 import WhySection from "../components/WhySection";
 import CultureSection from "../components/CultureSection";
+import CalculatorSection from "../components/CalculatorSection";
 import Testimonials from "../components/Testimonials";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
@@ -99,6 +100,7 @@ const Home = () => {
       <StatsSection />
       <WhySection />
       <CultureSection />
+      <CalculatorSection/>
       <Testimonials />
       <ContactSection />
       <Footer />

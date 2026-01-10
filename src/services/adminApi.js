@@ -24,7 +24,7 @@ export const getLeads = async () => {
       Authorization: `Bearer ${token}`
     }
   });
-
+    
   if (!res.ok) {
     throw new Error("Unauthorized");
   }

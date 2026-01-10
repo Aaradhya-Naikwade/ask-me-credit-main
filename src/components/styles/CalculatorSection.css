@@ -1,0 +1,126 @@
+.calculator-section {
+  position: relative;
+  height: 300px;
+  background: #0d4fba;
+  overflow: visible; 
+  font-family: "Poppins", sans-serif;
+}
+
+/* Layout */
+.calculator-container {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Left Content */
+.calculator-left {
+  flex: 1.2;
+  z-index: 2;
+}
+
+.calculator-left h2 {
+  font-size: 3.2rem;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.calculator-left h2 span {
+  color: #ffffff;
+}
+
+/* Button */
+.calculator-btn {
+  padding: 18px 40px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.calculator-btn:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+}
+
+.calculator-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.calculator-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* Right Image Container */
+.calculator-right {
+  position: absolute;
+  right: 0;
+  bottom: 0; 
+  z-index: 1;
+}
+
+/* POPUP IMAGE EFFECT */
+.calculator-image {
+  width: 520px;
+  transform: translateY(0px); 
+  border-radius: 32px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .calculator-section {
+    height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .calculator-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .calculator-left {
+    order: 1;
+  }
+
+  .calculator-right {
+    position: relative;     
+    bottom: auto;
+    right: auto;
+    order: 2;              
+    display: flex;
+    justify-content: center;
+  }
+
+  .calculator-image {
+    width: 360px;
+    transform: none;        
+    border-radius: 24px;
+  }
+
+  .calculator-left h2 {
+    font-size: 2.3rem;
+  }
+}
+
+
+@media (max-width: 350px) {
+ .calculator-image {
+    width: 300px;
+    transform: none;        
+    border-radius: 24px;
+  }
+
+}

@@ -72,7 +72,9 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "#0f172a"
+    // background: "#0f172a"
+    background: "linear-gradient(135deg, #0f172a 0%, #0e6bff 100%)"
+
   },
   card: {
     width: "100%",
@@ -80,7 +82,7 @@ const styles = {
     padding: "30px",
     borderRadius: "10px",
     background: "#ffffff",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.46)"
   },
   title: {
     textAlign: "center",
@@ -88,8 +90,8 @@ const styles = {
   },
   input: {
     width: "100%",
-    padding: "12px",
-    marginBottom: "12px",
+    padding: "18px",
+    marginBottom: "18px",
     borderRadius: "6px",
     border: "1px solid #ccc"
   },

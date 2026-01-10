@@ -57,7 +57,7 @@ const BusinessLoan = () => {
                     <div className="pl-form-column"><LoanForm defaultLoanType="Business Loan" /></div>
                 </div>
             </section>
-
+            
             {/* ELIGIBILITY SECTION */}
             <section className="pl-eligibility-section">
                 <div className="pl-container pl-elig-grid">
