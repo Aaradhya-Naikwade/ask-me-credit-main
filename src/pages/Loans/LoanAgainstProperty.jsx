@@ -34,7 +34,7 @@ const LoanAgainstProperty = () => {
                         <p>Unlock the hidden value of your property. Get high-value financing with lower interest rates for your business expansion or personal needs.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Loan Against Property" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/loan-against-property-hero.png" alt="Loan Against Property" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

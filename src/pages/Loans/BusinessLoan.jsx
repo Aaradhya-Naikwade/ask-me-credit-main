@@ -34,7 +34,7 @@ const BusinessLoan = () => {
                         <p>Empower your entrepreneurial journey. Scale your operations and achieve your business goals with our customized financial solutions.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Business Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/business-loan-hero.png" alt="Business Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

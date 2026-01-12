@@ -34,7 +34,7 @@ const TwoWheelerLoan = () => {
                         <p>Zip through the traffic on your own ride. Get instant approval and high funding for your favorite bike or scooter with minimal documentation.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Two Wheeler Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/two-wheeler-loan-hero.png" alt="Two Wheeler Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

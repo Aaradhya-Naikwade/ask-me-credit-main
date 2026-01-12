@@ -179,7 +179,14 @@
     .pl-hero-right {
         order: 1;
         justify-content: center;
+            margin-right: -80px;
     }
+
+    .pl-hero-right img{
+        max-width: 40%;
+    }
+
+    
 
     /* .pl-elig-image {
         order: -1;
@@ -288,5 +295,27 @@
         width: 100%;
         margin-left:    0px;
         margin-top: 0px;
+    }
+
+    .pl-hero-right {
+        order: 1;
+        justify-content: center;
+            margin-right: -50px;
+    }
+
+    .pl-hero-right img{
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 425px){
+    .pl-hero-right {
+        order: 1;
+        justify-content: center;
+            margin-right: -30px;
+    }
+
+    .pl-hero-right img{
+        max-width: 60%;
     }
 }

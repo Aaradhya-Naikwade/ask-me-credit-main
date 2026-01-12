@@ -34,7 +34,7 @@ const WorkingCapitalLoan = () => {
                         <p>Fuel your business growth and manage daily operations smoothly with our tailored working capital solutions and flexible repayment terms.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Working Capital" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/working-capital-loan.png" alt="Working Capital" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

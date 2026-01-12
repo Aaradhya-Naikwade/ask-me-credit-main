@@ -64,7 +64,7 @@ const About = () => {
 
           {/* LEFT SIDE*/}
           <div className="bento-left-column">
-            <img src="/images/Test.jpg" alt="Our Team" className="bento-main-img" />
+            <img src="/images/about-us-grid.jpg" alt="Our Team" className="bento-main-img" />
           </div>
 
           {/* RIGHT SIDE*/}
@@ -125,21 +125,21 @@ const About = () => {
       {/* VALUES */}
       <section className="values-section">
         <div className="container">
-          <h2 className="values-main-title">Values we stand for</h2>
+          <h2 className="values-main-title">Our Core Values</h2>
 
           <div className="values-bento-grid">
             {/* 1 */}
             <div className="value-card">
               <h3>First Time Right</h3>
               <p>Do it accurately and efficiently the first time, minimizing errors and rework.</p>
-              <div className="value-icon"><img src="/icons/bulb.svg" alt="Innovate" /></div>
+              <div className="value-icon"><img src="/images/about-us-grid/first-time-right.jpg" alt="Innovate" /></div>
             </div>
 
             {/* 2 */}
             <div className="value-card">
               <h3>Intelligent Technology</h3>
               <p>Leverage AI and smart systems to deliver fast, precise, and innovative financial solutions.</p>
-              <div className="value-icon"><img src="/icons/rules.svg" alt="Respect" /></div>
+              <div className="value-icon"><img src="/images/about-us-grid/intelligent-technology.jpg" alt="Respect" /></div>
             </div>
 
             {/* 3 */}
@@ -152,21 +152,21 @@ const About = () => {
                 <li>Clear goals with milestones defined</li>
                 <li>Customer Focus</li>
               </ul>
-              <div className="value-icon"><img src="/icons/gears.svg" alt="Execution" /></div>
+              <div className="value-icon"><img src="/images/about-us-grid/efficient-execution.jpg" alt="Execution" /></div>
             </div>
 
             {/* 4 */}
             <div className="value-card">
               <h3>Respect the Rules</h3>
               <p>Operate responsibly with regulators, partners, and customers at every step.</p>
-              <div className="value-icon"><img src="/icons/heart.svg" alt="Customer" /></div>
+              <div className="value-icon"><img src="/images/about-us-grid/respect-the-rules.jpg" alt="Customer" /></div>
             </div>
 
             {/* 5 */}
             <div className="value-card">
               <h3>Integrity</h3>
               <p>Be honest, transparent, and accountable—trust always comes first.</p>
-              <div className="value-icon"><img src="/icons/integrity.svg" alt="Integrity" /></div>
+              <div className="value-icon"><img src="/images/about-us-grid/integrity.jpg" alt="Integrity" /></div>
             </div>
 
           </div>

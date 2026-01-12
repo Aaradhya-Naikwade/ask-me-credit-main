@@ -34,7 +34,7 @@ const GoldLoan = () => {
                         <p>Unlock the value of your gold instantly. Get quick cash with minimal documentation and the lowest interest rates in the market.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Gold Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/gold-loan-hero.png" alt="Gold Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

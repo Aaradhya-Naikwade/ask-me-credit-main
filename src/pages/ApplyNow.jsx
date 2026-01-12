@@ -24,7 +24,7 @@ const ApplyNow = () => {
             >
               <div className="image-container">
                 <img 
-                  src="/images/Test.jpg" 
+                  src="/images/apply-now.jpg" 
                   alt="Apply for Credit" 
                   className="hero-image"
                 />

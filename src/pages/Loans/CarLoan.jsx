@@ -34,7 +34,7 @@ const CarLoan = () => {
                         <p>Drive home your dream car today with our quick-approval auto loans, low EMIs, and special rates for electric vehicles.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Car Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/car-loan-hero.png" alt="Car Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

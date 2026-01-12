@@ -34,7 +34,7 @@ const CommercialVehicleLoan = () => {
                         <p>Keep your business moving. Get flexible financing for trucks, buses, and fleets with customized repayment plans that match your cash flow.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Commercial Vehicle Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/commercial-vehicle-loan-hero.png" alt="Commercial Vehicle Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

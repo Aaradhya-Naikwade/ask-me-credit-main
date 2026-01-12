@@ -34,7 +34,7 @@ const EducationLoan = () => {
                         <p>Invest in your future. Get the financial support you need to pursue higher education in India or abroad with student-friendly repayment terms.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Education Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/education-loan-hero.png" alt="Education Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

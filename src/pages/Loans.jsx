@@ -48,7 +48,7 @@ const loanTypes = [
     title: "Overdraft Facility",
     description: "Pay interest only on the amount you actually use.",
     link: "/loans/overdraft",
-    image: "/images/loans/od.png",
+    image: "/images/loans/overdraft-facility.jpg",
   },
   {
     title: "Car Loan",

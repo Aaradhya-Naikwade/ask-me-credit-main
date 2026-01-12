@@ -34,7 +34,7 @@ const OverdraftFacility = () => {
                         <p>Enjoy the freedom of an on-demand credit line. Pay interest only on what you use and manage your cash flow like a pro.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Overdraft Facility" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/overdraft-facility-hero.png" alt="Overdraft Facility" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

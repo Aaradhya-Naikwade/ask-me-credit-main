@@ -34,7 +34,7 @@ const PersonalLoan = () => {
                         <p>Get instant funds for your personal needs with competitive interest rates and a completely digital process.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.png" alt="Personal Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/personal-loan-hero.png" alt="Personal Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>

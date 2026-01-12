@@ -34,7 +34,7 @@ const HomeLoan = () => {
                         <p>Turn your dream of owning a home into reality with low interest rates, flexible tenures, and an easy application process.</p>
                     </div>
                     <div className="pl-hero-right">
-                        <img src="/images/personal-loan-hero.avif" alt="Home Loan" className="pl-hero-bottom-img" />
+                        <img src="/images/loans-hero/home-loan-hero.png" alt="Home Loan" className="pl-hero-bottom-img" />
                     </div>
                 </div>
             </header>
