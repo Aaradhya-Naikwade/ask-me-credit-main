@@ -1,105 +1,3 @@
-// import React from "react";
-// import { motion } from "framer-motion";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import "./styles/AboutUs.css";
-
-// const AboutUs = () => {
-//   return (
-//     <div className="about-page">
-//       <Navbar />
-
-//       {/* Hero Section */}
-//       <section className="about-hero">
-//         <div className="container">
-//           <motion.div 
-//             className="about-hero-content"
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//           >
-//             <span className="kicker">Our Story</span>
-//             <h1>Reimagining the future of <span>Credit in India.</span></h1>
-//             <p className="lead">
-//               Ask Me Credit was born out of a simple observation: Access to capital should be 
-//               as fluid as the dreams it fuels. We are bridging the gap between traditional 
-//               banking and modern aspirations.
-//             </p>
-//           </motion.div>
-//         </div>
-//       </section>
-
-//       {/* Mission & Vision - Split Layout */}
-//       <section className="mission-section">
-//         <div className="container mission-grid">
-//           <motion.div 
-//             className="mission-image"
-//             initial={{ opacity: 0, x: -30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             viewport={{ once: true }}
-//           >
-//             <img src="src/assets/Demo.avif" alt="Our Workspace" />
-//           </motion.div>
-
-//           <motion.div 
-//             className="mission-text"
-//             initial={{ opacity: 0, x: 30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             viewport={{ once: true }}
-//           >
-//             <h2>The Mission</h2>
-//             <p>
-//               To empower 10 million underserved Indians with fair, fast, and 
-//               transparent credit by 2030. We believe financial inclusion is not 
-//               just a goal, but a fundamental right.
-//             </p>
-//             <div className="stats-row">
-//               <div>
-//                 <h3>100%</h3>
-//                 <p>Digital Process</p>
-//               </div>
-//               <div>
-//                 <h3>24/7</h3>
-//                 <p>Accessibility</p>
-//               </div>
-//             </div>
-//           </motion.div>
-//         </div>
-//       </section>
-
-//       {/* Philosophy - Three Column */}
-//       <section className="philosophy-section">
-//         <div className="container">
-//           <div className="section-header">
-//             <h2>Our Core Philosophy</h2>
-//           </div>
-//           <div className="philosophy-grid">
-//             <div className="phi-card">
-//               <span className="phi-num">01</span>
-//               <h4>Radical Transparency</h4>
-//               <p>No fine print. No hidden costs. We talk to our users like we talk to our friends.</p>
-//             </div>
-//             <div className="phi-card">
-//               <span className="phi-num">02</span>
-//               <h4>Technology First</h4>
-//               <p>We use proprietary AI models to look beyond credit scores and see real potential.</p>
-//             </div>
-//             <div className="phi-card">
-//               <span className="phi-num">03</span>
-//               <h4>User Obsession</h4>
-//               <p>Our products aren't built in boardrooms; they are built from user feedback loops.</p>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       <Footer />
-//     </div>
-//   );
-// };
-
-// export default AboutUs;
-
 
 
 import React from "react";
@@ -113,7 +11,6 @@ const About = () => {
     <div className="about-page-wrapper">
       <Navbar />
 
-      {/* HEADING */}
       <section className="about-heading-section">
         <div className="container">
           <motion.div
@@ -124,15 +21,13 @@ const About = () => {
           >
             <span className="kicker">About Us</span>
             <h1>
-              Powering  <span>Financial Freedom</span> for India
+              Powering <span>Financial Freedom</span> for India
             </h1>
-            {/* <p>
-              Ask Me Credit makes working capital and financial access fluid, fair, and future-ready. Through intelligent technology and inclusive finance, we help businesses and individuals turn ambition into achievement.</p> */}
           </motion.div>
         </div>
       </section>
 
-      {/* IMAGE SECTION */}
+
       <section className="about-image-section">
         <div className="about-bg-image">
           <motion.div
@@ -141,44 +36,141 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
           >
-            {/* <h2>Your Financial Partner</h2> */}
             <p>
-              Ask Me Credit makes working capital and financial access fluid, fair, and future-ready. Through intelligent technology and inclusive finance, we help businesses and individuals turn ambition into achievement.
+              Ask Me Credit makes working capital and financial access fluid, fair, and future-ready.
+              Through intelligent technology and inclusive finance, we help businesses and individuals turn ambition into achievement.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* CONTENT */}
-      {/* <section className="about-content-section">
-        <div className="container">
-          <div className="about-content-grid">
-            <div>
-              <h3>Who We Are</h3>
-              <p>
-                Ask Me Credit is a customer-first financial services platform
-                designed to make borrowing transparent, simple, and stress-free.
-              </p>
+
+
+      <section className="mobile-img-section">
+        <p>
+          Ask Me Credit makes working capital and financial access fluid, fair, and future-ready.
+          Through intelligent technology and inclusive finance, we help businesses and individuals turn ambition into achievement.
+        </p>
+        <img src="/images/about-mobile.png" alt="" />
+      </section>
+
+
+
+      {/* GRID */}
+      <section className="bento-details-section">
+                  <h2 className="bento-details-heading">About Us</h2>
+        <div className="container bento-main-grid">
+
+          {/* LEFT SIDE*/}
+          <div className="bento-left-column">
+            <img src="/images/Test.jpg" alt="Our Team" className="bento-main-img" />
+          </div>
+
+          {/* RIGHT SIDE*/}
+          <div className="bento-right-column">
+
+            {/* TOP RIGHT PART*/}
+            <div className="bento-top-subgrid">
+
+              {/* TOP LEFT of the Right Side: Vision Box */}
+              <div className="vision-box-card">
+                <h3>Our Vision</h3>
+                <p>To simplify Finance Freedom access for New India by leveraging technology, innovation, and strategic partnerships, creating equal opportunities that help to grow, compete, and succeed at every stage.</p>
+              </div>
+
+              {/* TOP RIGHT of the Right Side: Stats*/}
+              <div className="stats-mission-stack">
+                {/* Stats part */}
+                <div className="stats-mini-grid">
+                  <div className="stat-unit">
+                    <h4>50K+</h4>
+                    <p>Active Users</p>
+                  </div>
+                  <div className="stat-unit">
+                    <h4>12K+</h4>
+                    <p>Happy Customers</p>
+                  </div>
+                  <div className="stat-unit">
+                    <h4>25 Cr+</h4>
+                    <p>Amount Disbursed</p>
+                  </div>
+                  <div className="stat-unit">
+                    <h4>15+</h4>
+                    <p>Cities Covered</p>
+                  </div>
+                </div>
+
+                {/* Mission part */}
+                <div className="mission-box-card">
+                  <h3>Our Mission</h3>
+                  <p>Finance For All according to their unique need</p>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h3>What We Do</h3>
-              <p>
-                We connect you with trusted lenders, guide you through
-                eligibility, and help you choose the best financial products.
-              </p>
+            {/* BOTTOM RIGHT PART*/}
+            <div className="bento-bottom-row">
+              <div className="loan-approved-card">
+                <h3>Loan Approved</h3>
+                <p>AskMe Credit is built for people who want quick, clear, and stress-free access to money—without confusion, delays, or hidden terms. Whether you're managing monthly expenses, planning something important, or growing your business, we help you move forward with confidence.</p>
+                <p>We combine smart technology with real-world flexibility so you can check eligibility instantly, understand costs clearly, and apply without paperwork or pressure. Everything is designed around your needs, your timeline, and your goals.</p>
+              </div>
             </div>
 
-            <div>
-              <h3>Why Choose Us</h3>
-              <p>
-                Our experts, technology, and personalized support ensure you
-                always make informed credit decisions.
-              </p>
-            </div>
           </div>
         </div>
-      </section> */}
+      </section>
+
+      {/* VALUES */}
+      <section className="values-section">
+        <div className="container">
+          <h2 className="values-main-title">Values we stand for</h2>
+
+          <div className="values-bento-grid">
+            {/* 1 */}
+            <div className="value-card">
+              <h3>First Time Right</h3>
+              <p>Do it accurately and efficiently the first time, minimizing errors and rework.</p>
+              <div className="value-icon"><img src="/icons/bulb.svg" alt="Innovate" /></div>
+            </div>
+
+            {/* 2 */}
+            <div className="value-card">
+              <h3>Intelligent Technology</h3>
+              <p>Leverage AI and smart systems to deliver fast, precise, and innovative financial solutions.</p>
+              <div className="value-icon"><img src="/icons/rules.svg" alt="Respect" /></div>
+            </div>
+
+            {/* 3 */}
+            <div className="value-card tall-card">
+              <h3>Efficient Execution</h3>
+              <p>Think like an owner, stay mission-focused, and deliver results with speed and precision.</p>
+              <ul>
+                <li>Accountability and Ownership</li>
+                <li>Effective planning</li>
+                <li>Clear goals with milestones defined</li>
+                <li>Customer Focus</li>
+              </ul>
+              <div className="value-icon"><img src="/icons/gears.svg" alt="Execution" /></div>
+            </div>
+
+            {/* 4 */}
+            <div className="value-card">
+              <h3>Respect the Rules</h3>
+              <p>Operate responsibly with regulators, partners, and customers at every step.</p>
+              <div className="value-icon"><img src="/icons/heart.svg" alt="Customer" /></div>
+            </div>
+
+            {/* 5 */}
+            <div className="value-card">
+              <h3>Integrity</h3>
+              <p>Be honest, transparent, and accountable—trust always comes first.</p>
+              <div className="value-icon"><img src="/icons/integrity.svg" alt="Integrity" /></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

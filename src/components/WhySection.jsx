@@ -33,7 +33,7 @@ const reasons = [
     id: 4,
     title: "Easy to Use",
     description: "Simple interface with a smooth application flow.",
-    icon: <FiSmile />,
+    icon: <img src="/images/why/easy-to-use.png" alt="Easy to Use" className="custom-icon-img" />,
   },
 ];
 
