@@ -104,11 +104,8 @@
   padding: 16px 32px;
   font-size: 1.05rem;
   font-weight: 600;
-  /* background: white; */
-
+  background: white;
   color: var(--dark-navy);
-  background-color: #FE7062 ;
-
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   cursor: pointer;

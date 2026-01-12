@@ -58,7 +58,7 @@ const calculators = [
   //   image: "/images/calculators/eligibility.jpg",
   // },
 ];
-
+    
 const Calculators = () => {
   const navigate = useNavigate();
 
