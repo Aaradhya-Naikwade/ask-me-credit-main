@@ -260,7 +260,6 @@
 
 .pl-faq-item.active .pl-faq-answer {
     max-height: 200px;
-    /* Adjust based on content */
     padding: 0 24px 24px 24px;
 }
 
@@ -273,13 +272,10 @@
 }
 
 
-
-
-
 .pl-elig-image img {
     width: 140%;
     margin-left: -140px;
-    margin-top: -50px;
+    margin-top: -150px;
 }
 
 @media (max-width: 1024px) {
@@ -318,4 +314,14 @@
     .pl-hero-right img{
         max-width: 60%;
     }
+}
+
+.pl-page-wrapper{
+    position: relative;z-index: 999;
+}
+
+
+.pl-eligibility-section{
+    position: relative;
+    z-index: -1;
 }
