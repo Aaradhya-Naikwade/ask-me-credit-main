@@ -71,7 +71,7 @@ const WorkingCapitalLoan = () => {
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* Image placeholder for business eligibility */}
+                        <img src="/images/eligibility-criteria.png" alt="Eligibility" />
                     </div>
                 </div>
             </section>

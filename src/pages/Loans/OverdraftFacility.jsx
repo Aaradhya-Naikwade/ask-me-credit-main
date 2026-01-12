@@ -71,7 +71,7 @@ const OverdraftFacility = () => {
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* Image of cash flow management */}
+                        <img src="/images/eligibility-criteria.png" alt="Eligibility" />
                     </div>
                 </div>
             </section>

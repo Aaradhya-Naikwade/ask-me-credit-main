@@ -71,7 +71,7 @@ const PersonalLoan = () => {
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* <img src="/images/eligibility-criteria.png" alt="Eligibility" /> */}
+                        <img src="/images/eligibility-criteria.png" alt="Eligibility" />
                     </div>
                 </div>
             </section>

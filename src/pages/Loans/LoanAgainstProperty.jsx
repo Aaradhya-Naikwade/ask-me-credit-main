@@ -71,7 +71,7 @@ const LoanAgainstProperty = () => {
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* Image of property evaluation process */}
+                        <img src="/images/eligibility-criteria.png" alt="Eligibility" />
                     </div>
                 </div>
             </section>

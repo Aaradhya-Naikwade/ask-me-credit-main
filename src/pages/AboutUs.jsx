@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./styles/AboutUs.css";
 
+
 const About = () => {
   return (
     <div className="about-page-wrapper">

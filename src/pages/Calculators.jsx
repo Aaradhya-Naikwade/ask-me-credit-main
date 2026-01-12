@@ -51,12 +51,12 @@ const calculators = [
     link: "/gst-calculator",
     image: "/images/calculators/gst.jpg",
   },
-  {
-    title: "Eligibility Calculator",
-    description: "Know how much loan amount you are eligible for based on your income profile.",
-    link: "/calculators/eligibility",
-    image: "/images/calculators/eligibility.jpg",
-  },
+  // {
+  //   title: "Eligibility Calculator",
+  //   description: "Know how much loan amount you are eligible for based on your income profile.",
+  //   link: "/calculators/eligibility",
+  //   image: "/images/calculators/eligibility.jpg",
+  // },
 ];
 
 const Calculators = () => {

@@ -32,14 +32,14 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 20px;
-        max-width: 1000px;
+    max-width: 1000px;
 }
 
 .pl-hero-left h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 800;
 
-    
+
     line-height: 4.25rem;
     margin-bottom: 10px;
 }
@@ -61,17 +61,22 @@
 
 /* Sections */
 .pl-main-section,
-.pl-eligibility-section,
 .pl-docs-section {
     padding: 100px 0;
 }
+
+.pl-eligibility-section {
+    padding: 0;
+}
+
 
 .pl-content-grid,
 .pl-elig-grid {
     display: grid;
     grid-template-columns: 1fr 500px;
-    gap: 60px;
-    align-items: center;
+    gap: 0px;
+    /* align-items: center; */
+    align-items: start;
 }
 
 .pl-section-pill {
@@ -176,9 +181,9 @@
         justify-content: center;
     }
 
-    .pl-elig-image {
+    /* .pl-elig-image {
         order: -1;
-    }
+    } */
 
     .pl-prop-item {
         justify-content: flex-start;
@@ -258,4 +263,30 @@
     margin: 0;
     padding-top: 10px;
     border-top: 1px solid #e5edff;
+}
+
+
+
+
+
+.pl-elig-image img {
+    width: 140%;
+    margin-left: -140px;
+    margin-top: -50px;
+}
+
+@media (max-width: 1024px) {
+    .pl-elig-image img {
+        width: 100%;
+        margin-left:    0px;
+        margin-top: -50px;
+    }
+}
+
+@media (max-width: 768px) {
+.pl-elig-image img {
+        width: 100%;
+        margin-left:    0px;
+        margin-top: 0px;
+    }
 }

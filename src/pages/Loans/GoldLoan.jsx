@@ -71,7 +71,7 @@ const GoldLoan = () => {
                         </div>
                     </div>
                     <div className="pl-elig-image">
-                        {/* Space for Illustration */}
+                        <img src="/images/eligibility-criteria.png" alt="Eligibility" />
                     </div>
                 </div>
             </section>

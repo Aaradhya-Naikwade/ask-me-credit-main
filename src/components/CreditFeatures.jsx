@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import "../components/styles/CreditFeatures.css";
+import { useNavigate } from "react-router-dom";
+
 
 const CreditFeatures = () => {
+      const navigate = useNavigate();
+
   return (
     <section className="credit-section">
       <div className="container credit-container">
@@ -40,7 +44,7 @@ const CreditFeatures = () => {
             </li>
           </ul>
 
-          <button className="learn-more-btn">
+          <button className="learn-more-btn" onClick={() => navigate("/about")}>
             Learn More
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                <path d="M5 12h14M12 5l7 7-7 7"/>
