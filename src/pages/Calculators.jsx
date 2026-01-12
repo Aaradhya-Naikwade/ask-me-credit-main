@@ -49,7 +49,7 @@ const calculators = [
     title: "GST Calculator",
     description: "Calculate Goods and Services Tax quickly for your business invoices.",
     link: "/gst-calculator",
-    image: "/images/calculators/gst.jpg",
+    image: "/images/calculators/gst-calculator.jpg",
   },
   // {
   //   title: "Eligibility Calculator",
