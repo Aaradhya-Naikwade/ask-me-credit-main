@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import StatsSection from "../../components/StatsSection";
+
 import "./Calculators.css";
 
 const GstCalculator = () => {
+  const navigate = useNavigate();
+
   const [amount, setAmount] = useState(10000);
   const [gstRate, setGstRate] = useState(18);
-  const [type, setType] = useState("exclusive"); // exclusive | inclusive
+  const [type, setType] = useState("exclusive");
 
   const [gstAmount, setGstAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
@@ -158,7 +163,11 @@ const GstCalculator = () => {
                     ₹{totalAmount.toLocaleString()}
                   </h2>
                 </div>
+                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                >Apply Now</button>
+
               </div>
+
             </div>
           </div>
         </div>

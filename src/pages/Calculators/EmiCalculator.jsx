@@ -4,9 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import StatsSection from "../../components/StatsSection";
+import { useNavigate } from "react-router-dom";
+
+
 import "./Calculators.css";
 
 const EmiCalculator = () => {
+    const navigate = useNavigate();
+
     const [amount, setAmount] = useState(500000);
     const [rate, setRate] = useState(10.5);
     const [tenure, setTenure] = useState(24);
@@ -15,7 +20,7 @@ const EmiCalculator = () => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [activeFaq, setActiveFaq] = useState(null);
     const [showSchedule, setShowSchedule] = useState(false);
-    
+
     // auto-scroll
     const scheduleRef = useRef(null);
 
@@ -52,7 +57,7 @@ const EmiCalculator = () => {
     const toggleSchedule = () => {
         const nextState = !showSchedule;
         setShowSchedule(nextState);
-        
+
         if (nextState) {
             // Small timeout to allow the element to render before scrolling
             setTimeout(() => {
@@ -67,7 +72,10 @@ const EmiCalculator = () => {
         { q: "Can I pay off my loan early?", a: "Most lenders allow 'Foreclosure' or 'Pre-payment', though some may charge a small fee." }
     ];
 
+
+
     return (
+
         <div className="page-wrapper">
             <Navbar />
 
@@ -95,8 +103,8 @@ const EmiCalculator = () => {
                             </div>
                         </div>
 
-                        <button 
-                            className="schedule-trigger-btn" 
+                        <button
+                            className="schedule-trigger-btn"
                             onClick={toggleSchedule}
                         >
                             {showSchedule ? "Hide Repayment Schedule" : "Check Your Repayment Schedule"}
@@ -132,7 +140,8 @@ const EmiCalculator = () => {
                             <div className="calc-footer">
                                 <span className="res-label">Monthly EMI</span>
                                 <h2 className="res-value">₹{emi.toLocaleString()}</h2>
-                                <button className="cta-btn-primary">Apply for Loan</button>
+                                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                                >Apply for Loan</button>
                             </div>
                         </div>
                     </div>
@@ -141,7 +150,7 @@ const EmiCalculator = () => {
                 {/* REPAYMENT SCHEDULE SECTION */}
                 <AnimatePresence>
                     {showSchedule && (
-                        <motion.div 
+                        <motion.div
                             ref={scheduleRef}
                             className="demo"
                             initial={{ opacity: 0, height: 0 }}
@@ -200,10 +209,10 @@ const EmiCalculator = () => {
                             </button>
                             <AnimatePresence>
                                 {activeFaq === i && (
-                                    <motion.div 
-                                        className="faq-answer" 
-                                        initial={{ height: 0, opacity: 0 }} 
-                                        animate={{ height: "auto", opacity: 1 }} 
+                                    <motion.div
+                                        className="faq-answer"
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
                                     >
                                         <p>{f.a}</p>

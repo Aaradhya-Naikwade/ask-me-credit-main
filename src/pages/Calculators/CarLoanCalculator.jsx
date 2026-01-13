@@ -3,9 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import StatsSection from "../../components/StatsSection";
+import { useNavigate } from "react-router-dom";
+
 import "./Calculators.css";
 
 const CarLoanCalculator = () => {
+  const navigate = useNavigate();
+
   const [amount, setAmount] = useState(800000); // 8 Lakhs
   const [rate, setRate] = useState(9);
   const [tenure, setTenure] = useState(60); // 5 Years
@@ -193,7 +197,8 @@ const CarLoanCalculator = () => {
                 <h2 className="res-value">
                   ₹{emi.toLocaleString()}
                 </h2>
-                <button className="cta-btn-primary">
+                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                >
                   Apply for Car Loan
                 </button>
               </div>
@@ -204,7 +209,7 @@ const CarLoanCalculator = () => {
         {/* ANIMATED REPAYMENT TABLE */}
         <AnimatePresence>
           {showSchedule && (
-            <motion.div 
+            <motion.div
               ref={scheduleRef}
               className="demo"
               initial={{ opacity: 0, height: 0 }}

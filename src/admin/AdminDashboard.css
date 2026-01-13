@@ -1,0 +1,230 @@
+/* ================= GLOBAL RESET & WRAPPER ================= */
+.admin-wrapper {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 2px solid #001f3f; 
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #001f3f;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.admin-header h2 {
+  margin: 0;
+  color: #001f3f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================= FILTER PANEL ================= */
+.filter-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  background: #e9ecef;
+  padding: 15px;
+  border: 1px solid #001f3f;
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+
+.filter-panel input, 
+.filter-panel select {
+  padding: 8px;
+  border: 1px solid #001f3f;
+  background: white;
+  font-size: 14px;
+  border-radius: 0 !important; /* Force no radius */
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-group label {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #001f3f;
+}
+
+/* ================= TABLE STYLING ================= */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.admin-table th, 
+.admin-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #001f3f;
+}
+
+.admin-table th {
+  background-color: #001f3f;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.admin-table tr:hover {
+  background-color: #e2e6ea;
+}
+
+.status-select-inline {
+  padding: 4px;
+  border: 1px solid #001f3f;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #001f3f;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 0 !important;
+  transition: all 0.2s;
+}
+
+.btn.primary {
+  background-color: #001f3f;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #003366;
+}
+
+.btn.secondary {
+  background-color: white;
+  color: #001f3f;
+}
+
+.btn.secondary:hover {
+  background-color: #e9ecef;
+}
+
+.btn.danger {
+  background-color: #a30000;
+  color: white;
+  border-color: #a30000;
+}
+
+.btn.danger:hover {
+  background-color: #ff0000;
+}
+
+.btn.small {
+  padding: 4px 8px;
+  margin-right: 4px;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid #001f3f;
+  background: white;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.pagination button.active {
+  background: #001f3f;
+  color: white;
+}
+
+/* ================= MODALS ================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border: 3px solid #001f3f;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-card h3 {
+  margin-top: 0;
+  color: #001f3f;
+  border-bottom: 1px solid #001f3f;
+  padding-bottom: 10px;
+}
+
+.modal-card input, 
+.modal-card select, 
+.modal-card textarea {
+  padding: 10px;
+  border: 1px solid #001f3f;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ================= UTILS ================= */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-weight: bold;
+  color: #001f3f;
+}

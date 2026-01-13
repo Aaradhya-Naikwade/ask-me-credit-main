@@ -4,9 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import StatsSection from "../../components/StatsSection";
+import { useNavigate } from "react-router-dom";
 import "./Calculators.css";
 
 const EmiCalculator = () => {
+    const navigate = useNavigate();
+
     const [amount, setAmount] = useState(500000);
     const [rate, setRate] = useState(10.5);
     const [tenure, setTenure] = useState(24);
@@ -14,7 +17,7 @@ const EmiCalculator = () => {
     const [schedule, setSchedule] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
     const [activeFaq, setActiveFaq] = useState(null);
-    
+
 
     const [showSchedule, setShowSchedule] = useState(false);
     const scheduleRef = useRef(null);
@@ -79,7 +82,7 @@ const EmiCalculator = () => {
 
             <section className="emi-container">
                 <div className="emi-content-grid container">
-                    
+
                     <div className="emi-info-side">
                         <h2>Plan your personal loan smartly</h2>
                         <p>Use our personal loan calculator to estimate EMIs, understand interest costs, and choose the right tenure before applying.</p>
@@ -138,7 +141,8 @@ const EmiCalculator = () => {
                             <div className="calc-footer">
                                 <span className="res-label">Your Monthly EMI</span>
                                 <h2 className="res-value">₹{emi.toLocaleString()}</h2>
-                                <button className="cta-btn-primary">Apply for Personal Loan</button>
+                                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                                >Apply for Personal Loan</button>
                             </div>
                         </div>
                     </div>
@@ -147,8 +151,8 @@ const EmiCalculator = () => {
                 {/* MODIFIED: Repayment Schedule - Now hidden by default */}
                 <AnimatePresence>
                     {showSchedule && (
-                        <motion.div 
-                            className="demo" 
+                        <motion.div
+                            className="demo"
                             ref={scheduleRef}
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}

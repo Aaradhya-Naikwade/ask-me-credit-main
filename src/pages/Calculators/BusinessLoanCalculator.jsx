@@ -3,9 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import StatsSection from "../../components/StatsSection";
+import { useNavigate } from "react-router-dom";
+
 import "./Calculators.css";
 
 const BusinessLoanCalculator = () => {
+    const navigate = useNavigate();
+
+
     // 🔹 Business loan defaults
     const [amount, setAmount] = useState(1000000); // 1 Lakhs
     const [rate, setRate] = useState(14);
@@ -145,7 +150,8 @@ const BusinessLoanCalculator = () => {
                             <div className="calc-footer">
                                 <span className="res-label">Monthly EMI</span>
                                 <h2 className="res-value">₹{emi.toLocaleString()}</h2>
-                                <button className="cta-btn-primary">Apply for Business Loan</button>
+                                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                                >Apply for Business Loan</button>
                             </div>
                         </div>
                     </div>
@@ -154,7 +160,7 @@ const BusinessLoanCalculator = () => {
                 {/* REPAYMENT SCHEDULE WITH ANIMATION */}
                 <AnimatePresence>
                     {showSchedule && (
-                        <motion.div 
+                        <motion.div
                             ref={scheduleRef}
                             className="demo"
                             initial={{ opacity: 0, height: 0 }}
@@ -211,7 +217,7 @@ const BusinessLoanCalculator = () => {
                             </button>
                             <AnimatePresence>
                                 {activeFaq === i && (
-                                    <motion.div 
+                                    <motion.div
                                         className="faq-answer"
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}

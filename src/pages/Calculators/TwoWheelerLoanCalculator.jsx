@@ -2,13 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 import StatsSection from "../../components/StatsSection";
 import "./Calculators.css";
 
 const TwoWheelerLoanCalculator = () => {
-  const [amount, setAmount] = useState(120000); // ₹1.2 Lakh
+  const navigate = useNavigate();
+
+  const [amount, setAmount] = useState(120000);
   const [rate, setRate] = useState(11);
-  const [tenure, setTenure] = useState(36); // 3 Years
+  const [tenure, setTenure] = useState(36);
   const [emi, setEmi] = useState(0);
   const [schedule, setSchedule] = useState([]);
   const [expanded, setExpanded] = useState(false);
@@ -193,7 +196,8 @@ const TwoWheelerLoanCalculator = () => {
                 <h2 className="res-value">
                   ₹{emi.toLocaleString()}
                 </h2>
-                <button className="cta-btn-primary">
+                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                >
                   Apply for Two-Wheeler Loan
                 </button>
               </div>

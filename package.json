@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "datatables.net": "^2.3.6",
+    "datatables.net-dt": "^2.3.6",
     "framer-motion": "^12.23.26",
+    "jquery": "^3.7.1",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

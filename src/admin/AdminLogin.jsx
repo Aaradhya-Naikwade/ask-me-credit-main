@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { adminLogin } from "../services/adminApi";
 
@@ -10,6 +11,15 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  /* ================= AUTO REDIRECT IF LOGGED IN ================= */
+  useEffect(() => {
+    const token = localStorage.getItem("adminToken");
+    if (token) {
+      navigate("/admin/dashboard", { replace: true });
+    }
+  }, [navigate]);
+
+  /* ================= LOGIN SUBMIT ================= */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -21,7 +31,7 @@ const AdminLogin = () => {
       // Save token
       localStorage.setItem("adminToken", data.token);
 
-      navigate("/admin/dashboard");
+      navigate("/admin/dashboard", { replace: true });
     } catch (err) {
       setError("Invalid email or password");
     } finally {
@@ -66,15 +76,15 @@ const AdminLogin = () => {
   );
 };
 
+/* ================= STYLES ================= */
+
 const styles = {
   container: {
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // background: "#0f172a"
     background: "linear-gradient(135deg, #0f172a 0%, #0e6bff 100%)"
-
   },
   card: {
     width: "100%",

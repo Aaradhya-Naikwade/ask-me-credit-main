@@ -1,3 +1,82 @@
+// const API_URL = import.meta.env.VITE_API_URL;
+
+// /* ---------- ADMIN LOGIN ---------- */
+// export const adminLogin = async (email, password) => {
+//   const res = await fetch(`${API_URL}/api/admin/login`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({ email, password })
+//   });
+
+//   if (!res.ok) {
+//     throw new Error("Invalid credentials");
+//   }
+
+//   return res.json();
+// };
+
+// /* ---------- GET ALL LEADS ---------- */
+// export const getLeads = async () => {
+//   const token = localStorage.getItem("adminToken");
+
+//   const res = await fetch(`${API_URL}/api/leads`, {
+//     headers: {
+//       Authorization: `Bearer ${token}`
+//     }
+//   });
+    
+//   if (!res.ok) {
+//     throw new Error("Unauthorized");
+//   }
+
+//   return res.json();
+// };
+
+// /* ---------- UPDATE STATUS ---------- */
+// export const updateLeadStatus = async (id, status) => {
+//   const token = localStorage.getItem("adminToken");
+
+//   const res = await fetch(`${API_URL}/api/leads/${id}`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${token}`
+//     },
+//     body: JSON.stringify({ status })
+//   });
+
+//   return res.json();
+// };
+
+// /* ---------- DELETE LEAD ---------- */
+// export const deleteLead = async (id) => {
+//   const token = localStorage.getItem("adminToken");
+
+//   const res = await fetch(`${API_URL}/api/leads/${id}`, {
+//     method: "DELETE",
+//     headers: {
+//       Authorization: `Bearer ${token}`
+//     }
+//   });
+
+//   return res.json();
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 /* ---------- ADMIN LOGIN ---------- */
@@ -8,32 +87,40 @@ export const adminLogin = async (email, password) => {
     body: JSON.stringify({ email, password })
   });
 
-  if (!res.ok) {
-    throw new Error("Invalid credentials");
-  }
-
+  if (!res.ok) throw new Error("Invalid credentials");
   return res.json();
 };
 
-/* ---------- GET ALL LEADS ---------- */
+/* ---------- GET LEADS ---------- */
 export const getLeads = async () => {
   const token = localStorage.getItem("adminToken");
 
   const res = await fetch(`${API_URL}/api/leads`, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
+    headers: { Authorization: `Bearer ${token}` }
   });
-    
-  if (!res.ok) {
-    throw new Error("Unauthorized");
-  }
+
+  if (!res.ok) throw new Error("Unauthorized");
+  return res.json();
+};
+
+/* ---------- ADD LEAD ---------- */
+export const addLead = async (leadData) => {
+  const token = localStorage.getItem("adminToken");
+
+  const res = await fetch(`${API_URL}/api/leads`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(leadData)
+  });
 
   return res.json();
 };
 
-/* ---------- UPDATE STATUS ---------- */
-export const updateLeadStatus = async (id, status) => {
+/* ---------- UPDATE LEAD ---------- */
+export const updateLead = async (id, data) => {
   const token = localStorage.getItem("adminToken");
 
   const res = await fetch(`${API_URL}/api/leads/${id}`, {
@@ -42,7 +129,7 @@ export const updateLeadStatus = async (id, status) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     },
-    body: JSON.stringify({ status })
+    body: JSON.stringify(data)
   });
 
   return res.json();
@@ -54,9 +141,40 @@ export const deleteLead = async (id) => {
 
   const res = await fetch(`${API_URL}/api/leads/${id}`, {
     method: "DELETE",
+    headers: { Authorization: `Bearer ${token}` }
+  });
+
+  return res.json();
+};
+
+
+export const getLeadsWithFilters = async (params = {}) => {
+  const token = localStorage.getItem("adminToken");
+
+  const query = new URLSearchParams(params).toString();
+
+  const res = await fetch(`${API_URL}/api/leads?${query}`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
+  });
+
+  if (!res.ok) throw new Error("Unauthorized");
+  return res.json();
+};
+
+
+
+export const updateLeadNote = async (id, adminNote) => {
+  const token = localStorage.getItem("adminToken");
+
+  const res = await fetch(`${API_URL}/api/leads/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({ adminNote })
   });
 
   return res.json();

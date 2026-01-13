@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -6,10 +7,12 @@ import StatsSection from "../../components/StatsSection";
 import "./Calculators.css";
 
 const HomeLoanCalculator = () => {
+    const navigate = useNavigate();
+
     // 🔹 Home Loan defaults
-    const [amount, setAmount] = useState(3000000); 
+    const [amount, setAmount] = useState(3000000);
     const [rate, setRate] = useState(8.5);
-    const [tenure, setTenure] = useState(240); 
+    const [tenure, setTenure] = useState(240);
     const [emi, setEmi] = useState(0);
     const [schedule, setSchedule] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -145,7 +148,8 @@ const HomeLoanCalculator = () => {
                             <div className="calc-footer">
                                 <span className="res-label">Monthly Home Loan EMI</span>
                                 <h2 className="res-value">₹{emi.toLocaleString()}</h2>
-                                <button className="cta-btn-primary">Apply for Home Loan</button>
+                                <button className="cta-btn-primary" onClick={() => navigate("/apply")}
+                                >Apply for Home Loan</button>
                             </div>
                         </div>
                     </div>
@@ -154,7 +158,7 @@ const HomeLoanCalculator = () => {
                 {/* ANIMATED REPAYMENT SCHEDULE */}
                 <AnimatePresence>
                     {showSchedule && (
-                        <motion.div 
+                        <motion.div
                             ref={scheduleRef}
                             className="demo"
                             initial={{ opacity: 0, height: 0 }}
@@ -164,9 +168,9 @@ const HomeLoanCalculator = () => {
                         >
                             <div className="container schedule-section">
                                 <h2 className="schedule-main-title">Home Loan <span>Repayment Schedule</span></h2>
-                                
-                                
-                                
+
+
+
                                 <div className="table-responsive">
                                     <table className="amort-table">
                                         <thead>
@@ -214,7 +218,7 @@ const HomeLoanCalculator = () => {
                             </button>
                             <AnimatePresence>
                                 {activeFaq === i && (
-                                    <motion.div 
+                                    <motion.div
                                         className="faq-answer"
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}

@@ -122,7 +122,7 @@ const LoanForm = ({ defaultLoanType = "" }) => {
           <div className="input-group">
             <Phone className="input-icon" size={18} />
             <input
-              type="text"
+              type="text" 
               placeholder="10-Digit Phone Number"
               value={formData.phone}
               onChange={(e) =>
@@ -130,7 +130,7 @@ const LoanForm = ({ defaultLoanType = "" }) => {
                   ...formData,
                   phone: e.target.value.replace(/\D/g, "").slice(0, 10)
                 })
-              }
+              } 
               required
             />
           </div>
@@ -155,9 +155,7 @@ const LoanForm = ({ defaultLoanType = "" }) => {
               <option value="Car Loan">Car Loan</option>
               <option value="Gold Loan">Gold Loan</option>
               <option value="Two Wheeler Loan">Two Wheeler Loan</option>
-              <option value="Commercial Vehicle Loan">
-                Commercial Vehicle Loan
-              </option>
+              <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
             </select>
           </div>
 
@@ -179,9 +177,8 @@ const LoanForm = ({ defaultLoanType = "" }) => {
 
         <motion.button
           whileTap={{ scale: 0.98 }}
-          className={`premium-submit ${
-            status === "loading" ? "btn-loading" : ""
-          }`}
+          className={`premium-submit ${status === "loading" ? "btn-loading" : ""
+            }`}
           type="submit"
           disabled={status === "loading"}
         >
