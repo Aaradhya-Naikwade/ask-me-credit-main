@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -223,7 +224,7 @@ const AdminDashboard = () => {
                       className={`status ${lead.status.replace(" ", "").toLowerCase()}`}
                       value={lead.status}
                       onChange={e => handleStatusChange(lead._id, e.target.value)}
-                    >
+                    >  
                       <option>New</option>
                       <option>Converted</option>
                       <option>Not Converted</option>
@@ -231,7 +232,7 @@ const AdminDashboard = () => {
                   </td>
                   <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
                   <td>{lead.adminNote ? "Note Added" : "—"}</td>
-                  <td className="actions">
+                  <td className="actions">  
                     <button onClick={() => {
                       setEditingLead(lead);
                       setFormData(lead);
@@ -289,7 +290,7 @@ const AdminDashboard = () => {
           </form>
         </div>
       )}
-        
+
       {/* NOTE MODAL */}
       {noteModal && (
         <div className="modal">
