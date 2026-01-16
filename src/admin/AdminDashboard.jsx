@@ -290,7 +290,7 @@ const AdminDashboard = () => {
           </form>
         </div>
       )}
-
+    
       {/* NOTE MODAL */}
       {noteModal && (
         <div className="modal">
