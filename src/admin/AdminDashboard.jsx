@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,15 +9,15 @@ import {
 } from "../services/adminApi";
 import "./AdminDashboard.css";
 
-const PAGE_SIZE = 10;
-
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
   /* ================= STATE ================= */
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
   const [filters, setFilters] = useState({
     name: "",
@@ -79,6 +78,46 @@ const AdminDashboard = () => {
     fetchLeads();
   }, []);
 
+  /* ================= DOWNLOAD LOGIC ================= */
+  const handleDownload = () => {
+    if (leads.length === 0) {
+      alert("No data available to download");
+      return;
+    }
+
+    // Prepare CSV Header
+    const headers = ["S No.", "Full Name", "Phone", "Loan Type", "City", "Status", "Date", "Notes"];
+
+    // Prepare CSV Rows
+    const rows = leads.map((lead, index) => [
+      index + 1,
+      `"${lead.fullName}"`,
+      lead.phone,
+      `"${lead.loanType}"`,
+      `"${lead.city}"`,
+      lead.status,
+      new Date(lead.createdAt).toLocaleDateString(),
+      `"${(lead.adminNote || "").replace(/"/g, '""')}"` // Escape double quotes in notes
+    ]);
+
+    // Construct CSV Content
+    const csvContent = [
+      headers.join(","),
+      ...rows.map(row => row.join(","))
+    ].join("\n");
+
+    // Download
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `Leads_Export_${new Date().toLocaleDateString()}.csv`);
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   /* ================= STATUS UPDATE ================= */
   const handleStatusChange = async (id, status) => {
     try {
@@ -100,14 +139,20 @@ const AdminDashboard = () => {
   const yesterdayFilter = () => {
     const d = new Date();
     d.setDate(d.getDate() - 1);
-    fetchLeads({ ...filters, date: d.toISOString().split("T")[0], from: "", to: "" });
+    fetchLeads({
+      ...filters,
+      date: d.toISOString().split("T")[0],
+      from: "",
+      to: ""
+    });
   };
 
   /* ================= PAGINATION ================= */
-  const totalPages = Math.ceil(leads.length / PAGE_SIZE);
+  const totalPages = Math.ceil(leads.length / pageSize);
+
   const paginatedLeads = leads.slice(
-    (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
   );
 
   /* ================= ADD / EDIT ================= */
@@ -166,9 +211,16 @@ const AdminDashboard = () => {
       {/* HEADER */}
       <header className="admin-header">
         <h2>Admin Dashboard</h2>
-        <div>
-          <button className="btn primary" onClick={() => setLeadModal(true)}>+ Add Lead</button>
-          <button className="btn danger" onClick={handleLogout}>Logout</button>
+        <div className="header-actions">
+          <button className="btn download" onClick={handleDownload}>
+            Download
+          </button>
+          <button className="btn primary" onClick={() => setLeadModal(true)}>
+            + Add Lead
+          </button>
+          <button className="btn danger" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </header>
 
@@ -194,57 +246,79 @@ const AdminDashboard = () => {
         <button className="btn secondary" onClick={yesterdayFilter}>Yesterday</button>
       </section>
 
+      {/* PAGE SIZE */}
+      <div className="page-size-selector">
+        Show&nbsp;
+        <select
+          value={pageSize}
+          onChange={e => {
+            setPageSize(Number(e.target.value));
+            setCurrentPage(1);
+          }}
+        >                               
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={30}>30</option>
+          <option value={50}>50</option>
+        </select>
+        &nbsp;entries
+      </div>
+
       {/* TABLE */}
       {loading ? (
-        <p className="loading">Loading leads...</p>
+        <p className="loading">Loading Leads...</p>
       ) : (
         <>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Mobile</th>
-                <th>Loan</th>
-                <th>City</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>Note</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {paginatedLeads.map(lead => (
-                <tr key={lead._id}>
-                  <td>{lead.fullName}</td>
-                  <td>{lead.phone}</td>
-                  <td>{lead.loanType}</td>
-                  <td>{lead.city}</td>
-                  <td>
-                    <select
-                      className={`status ${lead.status.replace(" ", "").toLowerCase()}`}
-                      value={lead.status}
-                      onChange={e => handleStatusChange(lead._id, e.target.value)}
-                    >  
-                      <option>New</option>
-                      <option>Converted</option>
-                      <option>Not Converted</option>
-                    </select>
-                  </td>
-                  <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
-                  <td>{lead.adminNote ? "Note Added" : "—"}</td>
-                  <td className="actions">  
-                    <button onClick={() => {
-                      setEditingLead(lead);
-                      setFormData(lead);
-                      setLeadModal(true);
-                    }}>Edit</button>
-                    <button onClick={() => openNoteModal(lead)}>Note</button>
-                    <button className="danger" onClick={() => handleDelete(lead._id)}>Delete</button>
-                  </td>
+          <div className="table-container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>S No.</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+                  <th>Loan</th>
+                  <th>City</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Note</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {paginatedLeads.map((lead, index) => (
+                  <tr key={lead._id}>
+                    <td>{(currentPage - 1) * pageSize + index + 1}</td>
+                    <td>{lead.fullName}</td>
+                    <td>{lead.phone}</td>
+                    <td>{lead.loanType}</td>
+                    <td>{lead.city}</td>
+                    <td>
+                      <select
+                        className={`status ${lead.status.replace(/\s+/g, "").toLowerCase()}`}
+                        value={lead.status}
+                        onChange={e => handleStatusChange(lead._id, e.target.value)}
+                      >
+                        <option>New</option>
+                        <option>Converted</option>
+                        <option>Not Converted</option>
+                      </select>
+                    </td>
+                    <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
+                    <td>{lead.adminNote ? <span className="note-badge">Note Added</span> : "—"}</td>
+                    <td className="actions">
+                      <button onClick={() => {
+                        setEditingLead(lead);
+                        setFormData(lead);
+                        setLeadModal(true);
+                      }}>Edit</button>
+                      <button onClick={() => openNoteModal(lead)}>Note</button>
+                      <button className="danger" onClick={() => handleDelete(lead._id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           {/* PAGINATION */}
           <div className="pagination">
@@ -260,7 +334,7 @@ const AdminDashboard = () => {
           </div>
         </>
       )}
-
+      
       {/* ADD / EDIT MODAL */}
       {leadModal && (
         <div className="modal">
@@ -284,13 +358,13 @@ const AdminDashboard = () => {
               <option>Not Converted</option>
             </select>
             <div className="modal-actions">
-              <button className="primary">Save</button>
-              <button type="button" onClick={closeLeadModal}>Cancel</button>
+              <button type="submit" className="btn primary">Save</button>
+              <button type="button" className="btn secondary" onClick={closeLeadModal}>Cancel</button>
             </div>
           </form>
         </div>
       )}
-    
+
       {/* NOTE MODAL */}
       {noteModal && (
         <div className="modal">
@@ -298,8 +372,8 @@ const AdminDashboard = () => {
             <h3>Admin Note</h3>
             <textarea rows="5" value={noteText} onChange={e => setNoteText(e.target.value)} />
             <div className="modal-actions">
-              <button className="primary" onClick={saveNote}>Save</button>
-              <button onClick={() => setNoteModal(false)}>Cancel</button>
+              <button className="btn primary" onClick={saveNote}>Save</button>
+              <button className="btn secondary" onClick={() => setNoteModal(false)}>Cancel</button>
             </div>
           </div>
         </div>
