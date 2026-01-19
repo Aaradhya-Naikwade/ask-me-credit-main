@@ -365,6 +365,7 @@ const AdminDashboard = () => {
         </div>
       )}
 
+
       {/* NOTE MODAL */}
       {noteModal && (
         <div className="modal">
